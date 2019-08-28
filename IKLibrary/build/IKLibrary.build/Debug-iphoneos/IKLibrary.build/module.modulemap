@@ -1,0 +1,6 @@
+framework module IKLibrary {
+  umbrella header "IKLibrary.h"
+
+  export *
+  module * { export * }
+}
