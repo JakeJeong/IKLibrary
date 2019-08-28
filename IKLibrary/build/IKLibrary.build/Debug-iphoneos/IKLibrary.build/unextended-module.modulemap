@@ -5,7 +5,6 @@ framework module IKLibrary {
   module * { export * }
 }
 
-module IKLibrary.Swift {
-    header "IKLibrary-Swift.h"
-    requires objc
+module IKLibrary.__Swift {
+    exclude header "IKLibrary-Swift.h"
 }

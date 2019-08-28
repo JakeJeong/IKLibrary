@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "IKPopup.show():IKPopup.swift">
+      </ContextState>
+      <ContextState
+         contextName = "IKPopupManager.pop(popup:):IKPopup.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "popups">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.didTouchPopupAction(sender:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "IKPopupManager.shared">
+            </PersistentString>
+            <PersistentString
+               value = "lastPopup">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.didTouchPopAction(sender:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "IKPopupManager.shared">
+            </PersistentString>
+            <PersistentString
+               value = "lastPopup">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

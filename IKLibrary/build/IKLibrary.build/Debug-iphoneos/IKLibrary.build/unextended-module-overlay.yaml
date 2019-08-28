@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/jakejeong/Library/Developer/Xcode/DerivedData/IKLibrarySwift-gmpncgfherjkrkgwbjxmfpegwigs/Build/Products/Debug-iphoneos/IKLibrary.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/jakejeong/Documents/myproject/IKLibrary/IKLibrary/build/IKLibrary.build/Debug-iphoneos/IKLibrary.build/unextended-module.modulemap",
+    }]
+  }]
+}

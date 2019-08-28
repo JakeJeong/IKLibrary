@@ -14,8 +14,11 @@
 		5677EF2623163728006F872E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5677EF2423163728006F872E /* LaunchScreen.storyboard */; };
 		5677EF3123163728006F872E /* IKLibraryDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF3023163728006F872E /* IKLibraryDemoTests.swift */; };
 		5677EF3C23163728006F872E /* IKLibraryDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF3B23163728006F872E /* IKLibraryDemoUITests.swift */; };
-		5677EF4F23163775006F872E /* IKLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5677EF4E23163775006F872E /* IKLibrary.framework */; };
-		5677EF5023163775006F872E /* IKLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5677EF4E23163775006F872E /* IKLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5677EF572316414B006F872E /* IKLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5677EF562316414B006F872E /* IKLibrary.framework */; };
+		5677EF802316469E006F872E /* IKPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF7F2316469E006F872E /* IKPopup.swift */; };
+		5677EF8423164990006F872E /* IKPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF8323164990006F872E /* IKPopupView.swift */; };
+		5677EF8623164B88006F872E /* IKPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5677EF8523164B88006F872E /* IKPopupView.xib */; };
+		5677EF8823167138006F872E /* UIButton+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF8723167138006F872E /* UIButton+Extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5677EF5023163775006F872E /* IKLibrary.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,7 +65,11 @@
 		5677EF3723163728006F872E /* IKLibraryDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IKLibraryDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5677EF3B23163728006F872E /* IKLibraryDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKLibraryDemoUITests.swift; sourceTree = "<group>"; };
 		5677EF3D23163728006F872E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5677EF4E23163775006F872E /* IKLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IKLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5677EF562316414B006F872E /* IKLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IKLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5677EF7F2316469E006F872E /* IKPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKPopup.swift; sourceTree = "<group>"; };
+		5677EF8323164990006F872E /* IKPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKPopupView.swift; sourceTree = "<group>"; };
+		5677EF8523164B88006F872E /* IKPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IKPopupView.xib; sourceTree = "<group>"; };
+		5677EF8723167138006F872E /* UIButton+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5677EF4F23163775006F872E /* IKLibrary.framework in Frameworks */,
+				5677EF572316414B006F872E /* IKLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +101,11 @@
 		5677EF0F23163727006F872E = {
 			isa = PBXGroup;
 			children = (
-				5677EF4E23163775006F872E /* IKLibrary.framework */,
 				5677EF1A23163727006F872E /* IKLibraryDemo */,
 				5677EF2F23163728006F872E /* IKLibraryDemoTests */,
 				5677EF3A23163728006F872E /* IKLibraryDemoUITests */,
 				5677EF1923163727006F872E /* Products */,
+				5677EF552316414B006F872E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +124,7 @@
 			children = (
 				5677EF1B23163727006F872E /* AppDelegate.swift */,
 				5677EF1D23163727006F872E /* ViewController.swift */,
+				5677EF7E2316468A006F872E /* Popup */,
 				5677EF1F23163727006F872E /* Main.storyboard */,
 				5677EF2223163728006F872E /* Assets.xcassets */,
 				5677EF2423163728006F872E /* LaunchScreen.storyboard */,
@@ -142,6 +149,25 @@
 				5677EF3D23163728006F872E /* Info.plist */,
 			);
 			path = IKLibraryDemoUITests;
+			sourceTree = "<group>";
+		};
+		5677EF552316414B006F872E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5677EF562316414B006F872E /* IKLibrary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5677EF7E2316468A006F872E /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				5677EF7F2316469E006F872E /* IKPopup.swift */,
+				5677EF8323164990006F872E /* IKPopupView.swift */,
+				5677EF8523164B88006F872E /* IKPopupView.xib */,
+				5677EF8723167138006F872E /* UIButton+Extention.swift */,
+			);
+			path = Popup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +278,7 @@
 				5677EF2623163728006F872E /* LaunchScreen.storyboard in Resources */,
 				5677EF2323163728006F872E /* Assets.xcassets in Resources */,
 				5677EF2123163727006F872E /* Main.storyboard in Resources */,
+				5677EF8623164B88006F872E /* IKPopupView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5677EF1E23163727006F872E /* ViewController.swift in Sources */,
+				5677EF802316469E006F872E /* IKPopup.swift in Sources */,
+				5677EF8823167138006F872E /* UIButton+Extention.swift in Sources */,
 				5677EF1C23163727006F872E /* AppDelegate.swift in Sources */,
+				5677EF8423164990006F872E /* IKPopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

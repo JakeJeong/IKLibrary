@@ -24,6 +24,7 @@
 		5677EEFF23163702006F872E /* IKLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5677EEF523163702006F872E /* IKLibrary.framework */; };
 		5677EF0423163702006F872E /* IKLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF0323163702006F872E /* IKLibraryTests.swift */; };
 		5677EF0623163702006F872E /* IKLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 5677EEF823163702006F872E /* IKLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5677EF5423163A73006F872E /* IKPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF5323163A73006F872E /* IKPopup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		5677EEFE23163702006F872E /* IKLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IKLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5677EF0323163702006F872E /* IKLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKLibraryTests.swift; sourceTree = "<group>"; };
 		5677EF0523163702006F872E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5677EF5323163A73006F872E /* IKPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKPopup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				5677EEF823163702006F872E /* IKLibrary.h */,
+				5677EF5223163A3B006F872E /* IKPopup */,
 				5677EEF923163702006F872E /* Info.plist */,
 			);
 			path = IKLibrary;
@@ -98,6 +101,14 @@
 				5677EF0523163702006F872E /* Info.plist */,
 			);
 			path = IKLibraryTests;
+			sourceTree = "<group>";
+		};
+		5677EF5223163A3B006F872E /* IKPopup */ = {
+			isa = PBXGroup;
+			children = (
+				5677EF5323163A73006F872E /* IKPopup.swift */,
+			);
+			path = IKPopup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +173,7 @@
 				TargetAttributes = {
 					5677EEF423163702006F872E = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 					5677EEFD23163702006F872E = {
 						CreatedOnToolsVersion = 10.3;
@@ -177,6 +189,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 5677EEEB23163702006F872E;
 			productRefGroup = 5677EEF623163702006F872E /* Products */;
@@ -232,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5677EF5423163A73006F872E /* IKPopup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +393,7 @@
 		5677EF0A23163702006F872E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -393,9 +408,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikjeong.dev.IKLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -404,6 +421,7 @@
 		5677EF0B23163702006F872E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -418,6 +436,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikjeong.dev.IKLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -429,6 +448,7 @@
 		5677EF0D23163702006F872E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UKBWEH49RK;
 				INFOPLIST_FILE = IKLibraryTests/Info.plist;
@@ -447,6 +467,7 @@
 		5677EF0E23163702006F872E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UKBWEH49RK;
 				INFOPLIST_FILE = IKLibraryTests/Info.plist;

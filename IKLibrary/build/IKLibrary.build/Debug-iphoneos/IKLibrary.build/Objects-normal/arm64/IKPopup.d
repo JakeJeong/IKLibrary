@@ -1,0 +1,3 @@
+/Users/jakejeong/Documents/myproject/IKLibrary/IKLibrary/build/IKLibrary.build/Debug-iphoneos/IKLibrary.build/Objects-normal/arm64/IKPopup.o : /Users/jakejeong/Documents/myproject/IKLibrary/IKLibrary/IKLibrary/IKPopup/IKPopup.swift
+/Users/jakejeong/Documents/myproject/IKLibrary/IKLibrary/build/IKLibrary.build/Debug-iphoneos/IKLibrary.build/Objects-normal/arm64/IKPopup~partial.swiftmodule : /Users/jakejeong/Documents/myproject/IKLibrary/IKLibrary/IKLibrary/IKPopup/IKPopup.swift
+/Users/jakejeong/Documents/myproject/IKLibrary/IKLibrary/build/IKLibrary.build/Debug-iphoneos/IKLibrary.build/Objects-normal/arm64/IKPopup~partial.swiftdoc : /Users/jakejeong/Documents/myproject/IKLibrary/IKLibrary/IKLibrary/IKPopup/IKPopup.swift

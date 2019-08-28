@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+options: "f28b46294246ad10773b8eac7cfb3290"
+build_time: [1566969882, 725280000]
+inputs:
+  "/Users/jakejeong/Documents/myproject/IKLibrary/IKLibrary/IKLibrary/IKPopup/IKPopup.swift": !dirty [1566969553, 352785082]
