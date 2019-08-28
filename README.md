@@ -2,9 +2,9 @@
 
 1. PopupView
 2. Cryptor
-> AES256
-> HMAC
-> BCrypt
+*AES256
+*HMAC
+*BCrypt
 3. HUD
 4. Localizable
 5. SNS Share Kit (kakao, facebook, twitter)
