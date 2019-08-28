@@ -1,16 +1,32 @@
 # IKLibrary
 
 1. PopupView
+    - Custom Alert
+    - Custom Simple UI
 2. Cryptor
-*AES256
-*HMAC
-*BCrypt
+    - AES256
+    - HMAC
+    - BCrypt
 3. HUD
+    - Loading Progress
 4. Localizable
-5. SNS Share Kit (kakao, facebook, twitter)
+    - real time change
+5. SNS Share Kit (kakao, facebook, twitter, apple)
 6. JailBreak Detect
 7. Network Library wrapper
+    - Aramofire wrapper
 8. Extentions
+    - String
+    - NSAttributedString
 9. Pattern UI
+    - for Hybrid App Project
+    - UIPageViewController
+    - UINavigationController
+    - Present ViewController animation custom
 10. FCM Topic manager
+    - subscribe
+    - unsubscribe
 11. KeyboardSupport(Accessory)
+12. Contact Manager
+13. GPS(Location) Manager
+14. Photo Library
