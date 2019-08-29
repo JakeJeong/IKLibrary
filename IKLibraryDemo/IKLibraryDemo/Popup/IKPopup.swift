@@ -32,7 +32,15 @@ struct IKPopupAction {
     }
     
 }
-class IKPopup {
+class IKPopup : Hashable {
+    var hashValue: Int = 0
+    static func == (lhs: IKPopup, rhs: IKPopup) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        
+    }
     
     lazy var popupComponent = IKPopupComponent()
     var popupView : IKPopupView?
@@ -85,18 +93,17 @@ class IKPopup {
         view.titleLabel?.text = popupComponent.title
         view.mesageLabel?.text = popupComponent.mesage
         
-         var _weakSelf = weak self
         
         if let okAction = okPopupAction {
             view.okBtn?.text = okAction.title
             view.okAction { _ in
-                okAction.action!(okAction, _weakSelf)
+                okAction.action!(okAction, self)
             }
         }
         if let cancelAction = cancelPopupAction {
             view.cancelBtn?.text = cancelAction.title
             view.cancelAction { _ in
-                cancelAction.action!(cancelAction, _weakSelf)
+                cancelAction.action!(cancelAction, self)
             }
         }
         view.backgroundColor = UIColor.red
@@ -134,34 +141,42 @@ class IKPopup {
         self.cancelPopupAction = nil
     }
     deinit {
-        print("IKPopup Class deinit ->\(self)")
+        self.clearAll()
         print(CFGetRetainCount(self))
+        print("IKPopup Class deinit ->\(self)")
+        
     }
 }
-
 class IKPopupManager {
     static let shared = IKPopupManager()
-    var popups : [IKPopup] = []
+    var list = [IKPopup]()
     
     func push(popup : IKPopup){
-        popups.append(popup)
+        list.append(popup)
         log();
     }
     func pop(popup : IKPopup){
-        var pp = popups.first{$0.identifier == popup.identifier}
-        popups.removeAll{$0.identifier == popup.identifier}
-        print(CFGetRetainCount(pp))
-        pp?.clearAll()
-        pp = nil
+        if let pp = list.first(where: {$0 == popup}) {
+            list.removeAll{$0 == popup}
+            print(CFGetRetainCount(pp))
+        }
         log();
     }
     func lastPop(){
-        popups.removeLast()
-        log();
+        if list.count == 0 {
+            return
+        }
+        list.removeLast()
+    }
+    func getLastPop() -> IKPopup?{
+        if list.count == 0 {
+            return nil;
+        }
+        return list.first
     }
     func log(){
         print("===== START =====")
-        for pop in popups {
+        for pop in list {
             print("popup.identifier : \(pop.identifier!)")
         }
         print("===== End =====")

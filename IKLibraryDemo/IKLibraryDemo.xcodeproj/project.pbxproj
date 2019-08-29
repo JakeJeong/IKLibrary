@@ -19,6 +19,7 @@
 		5677EF8423164990006F872E /* IKPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF8323164990006F872E /* IKPopupView.swift */; };
 		5677EF8623164B88006F872E /* IKPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5677EF8523164B88006F872E /* IKPopupView.xib */; };
 		5677EF8823167138006F872E /* UIButton+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF8723167138006F872E /* UIButton+Extention.swift */; };
+		5677EF8A2317C8BC006F872E /* vertical.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5677EF892317C8BB006F872E /* vertical.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		5677EF8323164990006F872E /* IKPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKPopupView.swift; sourceTree = "<group>"; };
 		5677EF8523164B88006F872E /* IKPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IKPopupView.xib; sourceTree = "<group>"; };
 		5677EF8723167138006F872E /* UIButton+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extention.swift"; sourceTree = "<group>"; };
+		5677EF892317C8BB006F872E /* vertical.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vertical.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				5677EF1B23163727006F872E /* AppDelegate.swift */,
 				5677EF1D23163727006F872E /* ViewController.swift */,
+				5677EF892317C8BB006F872E /* vertical.jpeg */,
 				5677EF7E2316468A006F872E /* Popup */,
 				5677EF1F23163727006F872E /* Main.storyboard */,
 				5677EF2223163728006F872E /* Assets.xcassets */,
@@ -278,6 +281,7 @@
 				5677EF2623163728006F872E /* LaunchScreen.storyboard in Resources */,
 				5677EF2323163728006F872E /* Assets.xcassets in Resources */,
 				5677EF2123163727006F872E /* Main.storyboard in Resources */,
+				5677EF8A2317C8BC006F872E /* vertical.jpeg in Resources */,
 				5677EF8623164B88006F872E /* IKPopupView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
