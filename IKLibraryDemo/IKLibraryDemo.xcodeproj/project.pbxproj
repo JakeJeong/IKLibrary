@@ -20,6 +20,12 @@
 		5677EF8623164B88006F872E /* IKPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5677EF8523164B88006F872E /* IKPopupView.xib */; };
 		5677EF8823167138006F872E /* UIButton+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF8723167138006F872E /* UIButton+Extention.swift */; };
 		5677EF8A2317C8BC006F872E /* vertical.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5677EF892317C8BB006F872E /* vertical.jpeg */; };
+		5677EF8C2318A064006F872E /* UIWindow+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF8B2318A064006F872E /* UIWindow+Extention.swift */; };
+		5677EF8F2318AB99006F872E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF8E2318AB99006F872E /* Queue.swift */; };
+		5677EF912318AC42006F872E /* QueueDoubleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF902318AC42006F872E /* QueueDoubleStack.swift */; };
+		5677EF932318AFCD006F872E /* IKWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF922318AFCD006F872E /* IKWindow.swift */; };
+		5677EF9523190A86006F872E /* IKPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF9423190A86006F872E /* IKPopupVC.swift */; };
+		5677EF9723190DD9006F872E /* UIView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF9623190DD9006F872E /* UIView+Extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +78,12 @@
 		5677EF8523164B88006F872E /* IKPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IKPopupView.xib; sourceTree = "<group>"; };
 		5677EF8723167138006F872E /* UIButton+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extention.swift"; sourceTree = "<group>"; };
 		5677EF892317C8BB006F872E /* vertical.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vertical.jpeg; sourceTree = "<group>"; };
+		5677EF8B2318A064006F872E /* UIWindow+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extention.swift"; sourceTree = "<group>"; };
+		5677EF8E2318AB99006F872E /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		5677EF902318AC42006F872E /* QueueDoubleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDoubleStack.swift; sourceTree = "<group>"; };
+		5677EF922318AFCD006F872E /* IKWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKWindow.swift; sourceTree = "<group>"; };
+		5677EF9423190A86006F872E /* IKPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKPopupVC.swift; sourceTree = "<group>"; };
+		5677EF9623190DD9006F872E /* UIView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +139,7 @@
 				5677EF1B23163727006F872E /* AppDelegate.swift */,
 				5677EF1D23163727006F872E /* ViewController.swift */,
 				5677EF892317C8BB006F872E /* vertical.jpeg */,
+				5677EF8D2318AB88006F872E /* Queue */,
 				5677EF7E2316468A006F872E /* Popup */,
 				5677EF1F23163727006F872E /* Main.storyboard */,
 				5677EF2223163728006F872E /* Assets.xcassets */,
@@ -167,10 +180,23 @@
 			children = (
 				5677EF7F2316469E006F872E /* IKPopup.swift */,
 				5677EF8323164990006F872E /* IKPopupView.swift */,
+				5677EF9423190A86006F872E /* IKPopupVC.swift */,
+				5677EF922318AFCD006F872E /* IKWindow.swift */,
 				5677EF8523164B88006F872E /* IKPopupView.xib */,
 				5677EF8723167138006F872E /* UIButton+Extention.swift */,
+				5677EF8B2318A064006F872E /* UIWindow+Extention.swift */,
+				5677EF9623190DD9006F872E /* UIView+Extention.swift */,
 			);
 			path = Popup;
+			sourceTree = "<group>";
+		};
+		5677EF8D2318AB88006F872E /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				5677EF8E2318AB99006F872E /* Queue.swift */,
+				5677EF902318AC42006F872E /* QueueDoubleStack.swift */,
+			);
+			path = Queue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,10 +334,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5677EF1E23163727006F872E /* ViewController.swift in Sources */,
+				5677EF8F2318AB99006F872E /* Queue.swift in Sources */,
 				5677EF802316469E006F872E /* IKPopup.swift in Sources */,
+				5677EF8C2318A064006F872E /* UIWindow+Extention.swift in Sources */,
 				5677EF8823167138006F872E /* UIButton+Extention.swift in Sources */,
 				5677EF1C23163727006F872E /* AppDelegate.swift in Sources */,
+				5677EF9723190DD9006F872E /* UIView+Extention.swift in Sources */,
 				5677EF8423164990006F872E /* IKPopupView.swift in Sources */,
+				5677EF912318AC42006F872E /* QueueDoubleStack.swift in Sources */,
+				5677EF932318AFCD006F872E /* IKWindow.swift in Sources */,
+				5677EF9523190A86006F872E /* IKPopupVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

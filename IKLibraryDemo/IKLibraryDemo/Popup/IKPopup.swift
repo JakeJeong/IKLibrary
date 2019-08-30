@@ -22,163 +22,99 @@ struct IKPopupAction {
         case Cancel
     }
     var title : String?
-    var action : handlerAction?
     var style : IKPopupAction.style
+    var action : handlerAction?
     
     init(title : String?, style : IKPopupAction.style, action : handlerAction?) {
         self.title = title
         self.action = action
         self.style = style
     }
-    
 }
-class IKPopup : Hashable {
-    var hashValue: Int = 0
-    static func == (lhs: IKPopup, rhs: IKPopup) -> Bool {
-        return lhs.identifier == rhs.identifier
-    }
+
+protocol IKPopupProtocol {
+    static func create() -> IKPopup?
+    static func create(_ name : String) -> IKPopup?
     
-    func hash(into hasher: inout Hasher) {
-        
-    }
+    func show()
+    func dismiss()
+    func dismiss(completion : (() -> Void)?)
+}
+
+class IKPopup : IKPopupProtocol {
     
-    lazy var popupComponent = IKPopupComponent()
-    var popupView : IKPopupView?
+    private var isBlurBackground: Bool = false
     
-    private var _identifier : String? = nil
-    var identifier : String? {
-        if _identifier == nil {
-            _identifier = UUID().uuidString
+    private lazy var window = IKWindow()
+    private lazy var actions = [IKPopupAction]()
+    
+    static func create() -> IKPopup?{
+        guard let view = create("IKPopupView") else {
+            return nil
         }
-        return _identifier
+        return view
     }
-    
-    var okPopupAction : IKPopupAction?
-    var cancelPopupAction : IKPopupAction?
-    
-    func create() -> IKPopup{
-        self.popupView = IKPopupView.LoadView()
+    static func create(_ name: String) -> IKPopup? {
+        guard let popupView = IKPopupView.load(name) else {
+            return nil
+        }
+        let popup = IKPopup()
+        print(CFGetRetainCount(popupView))
+        popup.window.rootViewController = IKPopupVC()
+        popup.window.view = popupView
+        print(CFGetRetainCount(popupView))
+        return popup
+    }
+    func blurBackground() -> IKPopup {
+        self.isBlurBackground = true
         return self
     }
-    func bindComponent(_ component : IKPopupComponent) ->IKPopup{
-        popupComponent = component
-        print(CFGetRetainCount(self))
-        return self;
-    }
-    func addAction(action : IKPopupAction) -> IKPopup{
-        if action.style == .OK {
-            self.okPopupAction = action
-        } else if action.style == .Cancel {
-            self.cancelPopupAction = action
-        }
-        print(CFGetRetainCount(self))
+    
+    func addAction(action : @escaping () -> IKPopupAction) -> IKPopup{
+        let popAction = action()
+        self.actions.append(popAction)
         return self
     }
-    func addPopupAction(action : @escaping () -> IKPopupAction) -> IKPopup{
-        let popupAction = action()
-        if popupAction.style == .OK {
-            self.okPopupAction = popupAction
-        } else if popupAction.style == .Cancel {
-            self.cancelPopupAction = popupAction
-        }
-        print(CFGetRetainCount(self))
-        return self
-    }
+    
     func show() {
-        IKPopupManager.shared.push(popup: self)
+        if IKPopupManager.queue.enQueue(self.window) == false { return }
+        self.window.makeKeyAndVisible()
         
-        guard let view = popupView else {
-            return
+        UIView.animateKeyframes(withDuration: 0.8, delay: 0, options: .allowUserInteraction, animations: {
+            self.window.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+            self.window.view?.alpha = 0.0;
+            self.window.view?.center = (self.window.popupVC?.view.center)!
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.8/3, animations: {
+                self.window.popupVC?.view.addSubview(self.window.view!)
+            })
+            UIView.addKeyframe(withRelativeStartTime: (0.8/3)*2, relativeDuration: 0.8/3, animations: {
+                self.window.view?.alpha = 0.6;
+            })
+            UIView.addKeyframe(withRelativeStartTime: (0.8/3)*3, relativeDuration: 0.8/3, animations: {
+                self.window.view?.alpha = 1.0;
+            })
+        }) { (isCompleted) in
+            
         }
-        view.titleLabel?.text = popupComponent.title
-        view.mesageLabel?.text = popupComponent.mesage
-        
-        
-        if let okAction = okPopupAction {
-            view.okBtn?.text = okAction.title
-            view.okAction { _ in
-                okAction.action!(okAction, self)
-            }
-        }
-        if let cancelAction = cancelPopupAction {
-            view.cancelBtn?.text = cancelAction.title
-            view.cancelAction { _ in
-                cancelAction.action!(cancelAction, self)
-            }
-        }
-        view.backgroundColor = UIColor.red
-        guard let window =  UIApplication.shared.delegate?.window else {
-            return;
-        }
-        
-        window?.rootViewController?.view.addSubview(view)
-        print(CFGetRetainCount(self))
     }
+    
     func dismiss() {
-        guard let view = self.popupView else {
-            return
-        }
-        view.removeFromSuperview()
-        print(CFGetRetainCount(self))
-        IKPopupManager.shared.pop(popup: self)
-        print(CFGetRetainCount(self))
+        self.dismiss(completion: nil)
     }
-    func dismiss(completion : (() -> Void)? = nil) {
-        guard let view = self.popupView else {
-            return
+    
+    func dismiss(completion: (() -> Void)?) {
+        if let window =  IKPopupManager.queue.deQueue(self.window), window == self.window {
+            UIView.animateKeyframes(withDuration: 0.8, delay: 0, options: .allowUserInteraction, animations: {
+                self.window.backgroundColor = UIColor.black.withAlphaComponent(0.0)
+            }) { (isCompleted) in
+                window.resignKeyAndUnvisible()
+                if completion != nil {
+                    completion!()
+                }
+            }
         }
-        view.removeFromSuperview()
-        IKPopupManager.shared.pop(popup: self)
-        if completion != nil {
-            completion!()
-        }
-    }
-    func clearAll() {
-        self.popupView = nil
-        self.popupComponent.title = nil
-        self.popupComponent.mesage = nil
-        self.okPopupAction = nil
-        self.cancelPopupAction = nil
-    }
-    deinit {
-        self.clearAll()
-        print(CFGetRetainCount(self))
-        print("IKPopup Class deinit ->\(self)")
-        
     }
 }
 class IKPopupManager {
-    static let shared = IKPopupManager()
-    var list = [IKPopup]()
-    
-    func push(popup : IKPopup){
-        list.append(popup)
-        log();
-    }
-    func pop(popup : IKPopup){
-        if let pp = list.first(where: {$0 == popup}) {
-            list.removeAll{$0 == popup}
-            print(CFGetRetainCount(pp))
-        }
-        log();
-    }
-    func lastPop(){
-        if list.count == 0 {
-            return
-        }
-        list.removeLast()
-    }
-    func getLastPop() -> IKPopup?{
-        if list.count == 0 {
-            return nil;
-        }
-        return list.first
-    }
-    func log(){
-        print("===== START =====")
-        for pop in list {
-            print("popup.identifier : \(pop.identifier!)")
-        }
-        print("===== End =====")
-    }
+    static var queue = QueueDoubleStack<IKWindow>()
 }

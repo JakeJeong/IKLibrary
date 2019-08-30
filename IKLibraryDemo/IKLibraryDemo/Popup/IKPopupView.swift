@@ -10,8 +10,12 @@ import UIKit
 
 typealias IKPopupViewTouchAction = (IKPopupView) -> Void
 
-class IKPopupView : UIView {
-    
+protocol IKPopupViewProtocol {
+    static func load(_ name : String)-> IKPopupView?
+    static func load()-> IKPopupView?
+}
+
+class IKPopupView : UIView, IKPopupViewProtocol {
     @IBOutlet weak var titleLabel : UILabel?
     @IBOutlet weak var mesageLabel : UILabel?
     
@@ -58,7 +62,14 @@ class IKPopupView : UIView {
         action(self)
     }
     
-    class func LoadView() -> IKPopupView?{
+    static func load(_ name: String) -> IKPopupView? {
+        guard let view = Bundle.main.loadNibNamed(name, owner: self, options: nil)?.first as? IKPopupView else {
+            return nil;
+        }
+        return view
+    }
+    
+    static func load() -> IKPopupView?{
         guard let view = Bundle.main.loadNibNamed("IKPopupView", owner: self, options: nil)?.first as? IKPopupView else {
             return nil;
         }

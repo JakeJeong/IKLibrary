@@ -6,6 +6,9 @@
          contextName = "IKPopup.show():IKPopup.swift">
       </ContextState>
       <ContextState
+         contextName = "ViewController.onClickButton(sender:):ViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "IKPopupManager.pop(popup:):IKPopup.swift">
          <PersistentStrings>
             <PersistentString
