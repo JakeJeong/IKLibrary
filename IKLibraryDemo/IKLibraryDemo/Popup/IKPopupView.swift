@@ -15,6 +15,10 @@ protocol IKPopupViewProtocol {
     static func load()-> IKPopupView?
 }
 
+protocol IKPopupViewBtnActionProtocol {
+    func IKPopupViewDidTouchButtonAction(sender : UIButton)
+}
+
 class IKPopupView : UIView, IKPopupViewProtocol {
     @IBOutlet weak var titleLabel : UILabel?
     @IBOutlet weak var mesageLabel : UILabel?
@@ -22,8 +26,10 @@ class IKPopupView : UIView, IKPopupViewProtocol {
     @IBOutlet weak var okBtn : UIButton?
     @IBOutlet weak var cancelBtn : UIButton?
     
-    var okAction : IKPopupViewTouchAction!
-    var cancelAction : IKPopupViewTouchAction!
+//    var okAction : IKPopupViewTouchAction!
+//    var cancelAction : IKPopupViewTouchAction!
+    
+    var delegate : IKPopupViewBtnActionProtocol?
     
     private var _identifier : String? = nil
     var identifier : String {
@@ -36,31 +42,44 @@ class IKPopupView : UIView, IKPopupViewProtocol {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        let result =  self.subviews
+            .filter{$0 is UIButton}
+            .map{$0 as? UIButton}
+        
+        for btn in result {
+            btn?.addTarget(self, action:#selector(didTouchBtnAction(sender:)), for: .touchUpInside)
+        }
+        
+    }
+    
+    @objc fileprivate func didTouchBtnAction(sender : UIButton)  {
+        self.delegate?.IKPopupViewDidTouchButtonAction(sender: sender)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    func okAction(action : @escaping IKPopupViewTouchAction) {
-        self.okAction = action
-    }
-    func cancelAction(action : @escaping IKPopupViewTouchAction) {
-        self.cancelAction = action
-    }
+//    func okAction(action : @escaping IKPopupViewTouchAction) {
+//        self.okAction = action
+//    }
+//    func cancelAction(action : @escaping IKPopupViewTouchAction) {
+//        self.cancelAction = action
+//    }
     
-    @IBAction func didTouchOKAction(sender : Any) {
-        guard let action = self.okAction else {
-            return;
-        }
-        action(self)
-    }
-    @IBAction func didTouchCancelAction(sender : Any) {
-        guard let action = self.cancelAction else {
-            return;
-        }
-        action(self)
-    }
+//    @IBAction func didTouchOKAction(sender : Any) {
+//        guard let action = self.okAction else {
+//            return;
+//        }
+//        action(self)
+//    }
+//    @IBAction func didTouchCancelAction(sender : Any) {
+//        guard let action = self.cancelAction else {
+//            return;
+//        }
+//        action(self)
+//    }
     
     static func load(_ name: String) -> IKPopupView? {
         guard let view = Bundle.main.loadNibNamed(name, owner: self, options: nil)?.first as? IKPopupView else {

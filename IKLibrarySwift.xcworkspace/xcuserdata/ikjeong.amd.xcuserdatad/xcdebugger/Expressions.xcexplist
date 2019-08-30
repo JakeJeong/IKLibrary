@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in IKPopup.didTouchBtnAction(_:):IKPopup.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.isConfirmType">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IKPopup.didTouchBtnAction(_:):IKPopup.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.actions">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static IKPopup.create(_:):IKPopup.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "btn.allTargets">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UIButton.isCancelType.setter:UIButton+Extention.swift">
+      </ContextState>
+      <ContextState
+         contextName = "UIButton.isConfirmType.getter:UIButton+Extention.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
