@@ -6,6 +6,14 @@
 //  Copyright © 2019 JakeJeong. All rights reserved.
 //
 
+/*
+ 설명 블로그
+ https://the-brain-of-sic2.tistory.com/entry/%ED%81%90
+ 
+ 참고 소스
+ https://github.com/changSic/DataStructures-and-Algorithms-in-Swift
+ */
+
 import Foundation
 
 public struct QueueDoubleStack<T : Equatable> : Queue {

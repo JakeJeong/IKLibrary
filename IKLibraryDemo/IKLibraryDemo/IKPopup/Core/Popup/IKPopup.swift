@@ -74,10 +74,11 @@ class IKPopup : NSObject, IKPopupProtocol, IKPopupViewActionDelegate {
         let actionResults = self.actions.filter { (action) -> Bool in
             if sender.isConfirmType == true {
                 return action.style == .Confirm
-            } else {
-                if sender.isCancelType == true {
-                    return action.style == .Cancel
-                }
+            } else if sender.isCancelType == true {
+                return action.style == .Cancel
+            }
+            else if sender.isOtherType == true {
+                return action.style == .Other
             }
             return false
         }
@@ -119,7 +120,9 @@ class IKPopup : NSObject, IKPopupProtocol, IKPopupViewActionDelegate {
                     return true
                 } else if popAction.style == .Confirm, btn.isConfirmType == true{
                     return true
-                } else { return false }})
+                }  else if popAction.style == .Other, btn.isOtherType == true{
+                    return true
+                }  else { return false }})
             .map({$0 as? UIButton}) {
             for btn in result {
                 btn?.setTitle(popAction.title, for: .normal)

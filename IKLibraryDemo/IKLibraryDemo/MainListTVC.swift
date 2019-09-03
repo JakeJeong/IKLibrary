@@ -8,9 +8,23 @@
 
 import UIKit
 
+
+struct ExClass {
+    var title : String?
+    var description : String?
+}
+struct MenuModel {
+    var title : String?
+    var list : [ExClass?]
+    
+    var count : Int {
+        return list.count
+    }
+}
+
 class MainListTVC: UITableViewController {
     
-    var list : [String?] = []
+    var list : [MenuModel?] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +35,14 @@ class MainListTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        list.append("IKPopup")
+        var popupModels = MenuModel(title: "IKPopup", list: [])
+        popupModels.list.append(contentsOf: [
+            ExClass(title: "IKPopup", description: "Default IKPopup"),
+            ExClass(title: "CustomIKPopup", description: "Custom IKPopup"),
+            ExClass(title: "SheetPopup", description: "Three Buttons IKPopup")
+            ])
+        
+        list.append(popupModels)
         self.tableView.reloadData()
     }
 
@@ -29,28 +50,130 @@ class MainListTVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return self.list.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.list.count
+        let popmodels = self.list[section]
+        return popmodels!.count
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let popmodels = self.list[section] else {
+            return nil
+        }
+        return popmodels.title
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath)
-
-        if let string = list[indexPath.row] {
-            cell.textLabel?.text = string
+        
+        if let popmodels = self.list[indexPath.section], let exClass = popmodels.list[indexPath.row] {
+            cell.textLabel?.text = exClass.title
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+            cell.detailTextLabel?.text = exClass.description
         }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let string = list[indexPath.row] {
-            self.performSegue(withIdentifier: string, sender: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let popmodels = self.list[indexPath.section], let exClass = popmodels.list[indexPath.row] {
+            switch (exClass.title) {
+            case "CustomIKPopup" :
+                openCustomPopup()
+            case "IKPopup" :
+                openIKPopup()
+            case "SheetPopup" :
+                openSheetPopup()
+            default: break
+                
+            }
         }
+    }
+    func openSheetPopup() {
+        IKPopup.create("SheetPopup")?.addMessage("이건 뭘까요?")
+            .addAction { () -> IKPopupAction in
+                return IKPopupAction(
+                    title: "Confirm",
+                    style: .Confirm,
+                    action: { (action, popup) in
+                        print("action!!! -> \(action.title!)")
+                        popup.dismiss()
+                })
+            }
+            .addAction { () -> IKPopupAction in
+                return IKPopupAction(
+                    title: "Cancel",
+                    style: .Cancel,
+                    action: { (action, popup) in
+                        popup.dismiss(completion: {
+                            print("action!!! -> \(action.title!)")
+                        })
+                })
+            }
+            .addAction { () -> IKPopupAction in
+                return IKPopupAction(
+                    title: "ETC",
+                    style: .Other,
+                    action: { (action, popup) in
+                        popup.dismiss(completion: {
+                            print("action!!! -> \(action.title!)")
+                        })
+                })
+            }
+            .blurBackground()
+            .show()
+    }
+    
+    func openCustomPopup() {
+        IKPopup.create("CustomPopupView")?.addTitle("CustomPopupView", withMessage: "Custom Popup in Message")
+            .addAction { () -> IKPopupAction in
+                return IKPopupAction(
+                    title: "Confirm",
+                    style: .Confirm,
+                    action: { (action, popup) in
+                        print("action!!! -> \(action.title!)")
+                        popup.dismiss()
+                })
+            }
+            .addAction { () -> IKPopupAction in
+                return IKPopupAction(
+                    title: "Cancel",
+                    style: .Cancel,
+                    action: { (action, popup) in
+                        popup.dismiss(completion: {
+                            print("action!!! -> \(action.title!)")
+                        })
+                })
+            }
+            .blurBackground()
+            .show()
+    }
+    func openIKPopup() {
+        IKPopup.create()?.addTitle("제목", withMessage: "메세지")
+            .addAction { () -> IKPopupAction in
+                return IKPopupAction(
+                    title: "확인",
+                    style: .Confirm,
+                    action: { (action, popup) in
+                        print("action!!! -> \(action.title!)")
+                        popup.dismiss()
+                })
+            }
+            .addAction { () -> IKPopupAction in
+                return IKPopupAction(
+                    title: "취소",
+                    style: .Cancel,
+                    action: { (action, popup) in
+                        popup.dismiss(completion: {
+                            print("action!!! -> \(action.title!)")
+                        })
+                })
+            }
+            //            .blurBackground()
+            .show()
     }
 
     /*

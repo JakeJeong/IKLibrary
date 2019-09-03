@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SheetPopup" customModule="IKLibraryDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="364"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRp-0v-hs0">
+                    <rect key="frame" x="20" y="304" width="374" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="S8c-GW-hBx"/>
+                    </constraints>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isOtherType" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffw-ad-slc">
+                    <rect key="frame" x="20" y="254" width="374" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="6v2-PR-T3T"/>
+                    </constraints>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isCancelType" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nE9-XM-8z4">
+                    <rect key="frame" x="20" y="204" width="374" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="wqf-W5-neg"/>
+                    </constraints>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isConfirmType" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pls-J3-bpD">
+                    <rect key="frame" x="20" y="20" width="374" height="164"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aRp-0v-hs0" secondAttribute="trailing" constant="20" id="BqO-5r-4Lb"/>
+                <constraint firstItem="Pls-J3-bpD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="FW1-Zj-TtG"/>
+                <constraint firstItem="Ffw-ad-slc" firstAttribute="top" secondItem="nE9-XM-8z4" secondAttribute="bottom" constant="10" id="PiL-N2-xw6"/>
+                <constraint firstItem="nE9-XM-8z4" firstAttribute="top" secondItem="Pls-J3-bpD" secondAttribute="bottom" constant="20" id="bPc-PV-V7C"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pls-J3-bpD" secondAttribute="trailing" constant="20" id="dWs-Fk-t8h"/>
+                <constraint firstItem="aRp-0v-hs0" firstAttribute="top" secondItem="Ffw-ad-slc" secondAttribute="bottom" constant="10" id="hMv-Yz-Mma"/>
+                <constraint firstItem="Ffw-ad-slc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="iSt-cc-o0H"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ffw-ad-slc" secondAttribute="trailing" constant="20" id="jKm-PK-hfB"/>
+                <constraint firstItem="aRp-0v-hs0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="jPh-eX-cHV"/>
+                <constraint firstItem="nE9-XM-8z4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="ozQ-js-ttp"/>
+                <constraint firstAttribute="bottom" secondItem="aRp-0v-hs0" secondAttribute="bottom" constant="20" id="w1W-zt-9Tl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nE9-XM-8z4" secondAttribute="trailing" constant="20" id="yAk-No-Iza"/>
+                <constraint firstItem="Pls-J3-bpD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="zKB-0r-mQh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="cancelBtn" destination="Ffw-ad-slc" id="Z5x-Ur-9BI"/>
+                <outlet property="mesageLabel" destination="Pls-J3-bpD" id="FUG-FB-qRJ"/>
+                <outlet property="okBtn" destination="nE9-XM-8z4" id="jDP-58-fwq"/>
+                <outlet property="otherBtn" destination="aRp-0v-hs0" id="bAb-W9-PAy"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="330.80357142857139"/>
+        </view>
+    </objects>
+</document>

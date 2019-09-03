@@ -13,6 +13,7 @@ typealias IKPopupViewTouchAction = (IKPopupView) -> Void
 protocol IKPopupViewProtocol {
     static func load(_ name : String)-> IKPopupView?
     static func load()-> IKPopupView?
+    func initFrame()
 }
 
 protocol IKPopupViewActionDelegate {
@@ -20,11 +21,14 @@ protocol IKPopupViewActionDelegate {
 }
 
 class IKPopupView : UIView, IKPopupViewProtocol {
+    
+    
     @IBOutlet weak var titleLabel : UILabel?
     @IBOutlet weak var mesageLabel : UILabel?
     
     @IBOutlet weak var okBtn : UIButton?
     @IBOutlet weak var cancelBtn : UIButton?
+    @IBOutlet weak var otherBtn : UIButton?
     
 //    var okAction : IKPopupViewTouchAction!
 //    var cancelAction : IKPopupViewTouchAction!
@@ -61,6 +65,10 @@ class IKPopupView : UIView, IKPopupViewProtocol {
         super.init(frame: frame)
     }
     
+    func initFrame() {
+        
+    }
+    
 //    func okAction(action : @escaping IKPopupViewTouchAction) {
 //        self.okAction = action
 //    }
@@ -81,10 +89,19 @@ class IKPopupView : UIView, IKPopupViewProtocol {
 //        action(self)
 //    }
     
+    static func loadDefault() -> IKPopupView? {
+        guard let view = Bundle.main.loadNibNamed(String(describing: IKPopupView.self), owner: self, options: nil)?.first as? IKPopupView else {
+            return nil;
+        }
+        view.initFrame()
+        return view
+    }
+    
     static func load(_ name: String) -> IKPopupView? {
         guard let view = Bundle.main.loadNibNamed(name, owner: self, options: nil)?.first as? IKPopupView else {
             return nil;
         }
+        view.initFrame()
         return view
     }
     
@@ -92,6 +109,7 @@ class IKPopupView : UIView, IKPopupViewProtocol {
         guard let view = Bundle.main.loadNibNamed("IKPopupView", owner: self, options: nil)?.first as? IKPopupView else {
             return nil;
         }
+        view.initFrame()
         return view
         
     }

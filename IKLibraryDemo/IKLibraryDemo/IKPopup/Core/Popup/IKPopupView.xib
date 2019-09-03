@@ -80,7 +80,7 @@
                 <outlet property="okBtn" destination="vUH-Be-1kr" id="EQj-88-yiP"/>
                 <outlet property="titleLabel" destination="WaF-kE-Bi8" id="kR1-Vb-xSw"/>
             </connections>
-            <point key="canvasLocation" x="47.826086956521742" y="-123.54910714285714"/>
+            <point key="canvasLocation" x="72" y="41"/>
         </view>
     </objects>
 </document>

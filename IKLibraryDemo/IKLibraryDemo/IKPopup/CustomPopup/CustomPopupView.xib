@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="bd0-9r-wAg" customClass="CustomPopupView" customModule="IKLibraryDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="431" height="332"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJp-dI-UL9">
+                    <rect key="frame" x="20" y="64" width="391" height="23"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9M-t9-bTH">
+                    <rect key="frame" x="20" y="107" width="391" height="107"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UW1-Ly-rii">
+                    <rect key="frame" x="28" y="234" width="181.5" height="44"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Z1t-sq-GnU"/>
+                    </constraints>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isCancelType" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97Z-WF-SWl">
+                    <rect key="frame" x="229.5" y="234" width="181.5" height="44"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isConfirmType" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="F9M-t9-bTH" firstAttribute="top" secondItem="cJp-dI-UL9" secondAttribute="bottom" constant="20" id="03Z-MY-88S"/>
+                <constraint firstItem="97Z-WF-SWl" firstAttribute="height" secondItem="UW1-Ly-rii" secondAttribute="height" id="6bg-0l-q7W"/>
+                <constraint firstItem="cJp-dI-UL9" firstAttribute="leading" secondItem="KDh-uD-xly" secondAttribute="leading" constant="20" id="Ax8-VW-qKy"/>
+                <constraint firstItem="UW1-Ly-rii" firstAttribute="top" secondItem="F9M-t9-bTH" secondAttribute="bottom" constant="20" id="BMD-ec-mnq"/>
+                <constraint firstItem="UW1-Ly-rii" firstAttribute="width" secondItem="97Z-WF-SWl" secondAttribute="width" id="Iig-nm-nus"/>
+                <constraint firstItem="97Z-WF-SWl" firstAttribute="leading" secondItem="UW1-Ly-rii" secondAttribute="trailing" constant="20" id="Ira-Dv-S50"/>
+                <constraint firstItem="F9M-t9-bTH" firstAttribute="leading" secondItem="KDh-uD-xly" secondAttribute="leading" constant="20" id="N9Q-To-emU"/>
+                <constraint firstItem="KDh-uD-xly" firstAttribute="bottom" secondItem="UW1-Ly-rii" secondAttribute="bottom" constant="20" id="Nv2-62-C9Z"/>
+                <constraint firstItem="KDh-uD-xly" firstAttribute="trailing" secondItem="cJp-dI-UL9" secondAttribute="trailing" constant="20" id="cMH-29-DhE"/>
+                <constraint firstItem="cJp-dI-UL9" firstAttribute="top" secondItem="KDh-uD-xly" secondAttribute="top" constant="20" id="fPD-CZ-bHZ"/>
+                <constraint firstItem="UW1-Ly-rii" firstAttribute="leading" secondItem="KDh-uD-xly" secondAttribute="leading" constant="28" id="mi3-TE-eYE"/>
+                <constraint firstItem="KDh-uD-xly" firstAttribute="bottom" secondItem="97Z-WF-SWl" secondAttribute="bottom" constant="20" id="srm-2j-H2n"/>
+                <constraint firstItem="97Z-WF-SWl" firstAttribute="leading" secondItem="UW1-Ly-rii" secondAttribute="trailing" constant="20" id="vwJ-US-Jc9"/>
+                <constraint firstItem="KDh-uD-xly" firstAttribute="trailing" secondItem="97Z-WF-SWl" secondAttribute="trailing" constant="20" id="wgg-cp-BPp"/>
+                <constraint firstItem="KDh-uD-xly" firstAttribute="trailing" secondItem="F9M-t9-bTH" secondAttribute="trailing" constant="20" id="xYo-WB-SXm"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="KDh-uD-xly"/>
+            <connections>
+                <outlet property="cancelBtn" destination="97Z-WF-SWl" id="K5s-e2-kTK"/>
+                <outlet property="mesageLabel" destination="F9M-t9-bTH" id="pwo-M6-YIc"/>
+                <outlet property="okBtn" destination="UW1-Ly-rii" id="NhZ-HZ-NaI"/>
+                <outlet property="titleLabel" destination="cJp-dI-UL9" id="Ehf-LT-PAm"/>
+            </connections>
+            <point key="canvasLocation" x="-67.391304347826093" y="-30.133928571428569"/>
+        </view>
+    </objects>
+</document>
