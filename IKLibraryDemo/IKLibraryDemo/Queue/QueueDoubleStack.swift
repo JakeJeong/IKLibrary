@@ -32,7 +32,9 @@ public struct QueueDoubleStack<T : Equatable> : Queue {
             leftStack = rightStack.reversed()
             rightStack.removeAll()
         }
+        print("")
         leftStack.removeAll{ $0 == element}
+        print("")
         return element
     }
     

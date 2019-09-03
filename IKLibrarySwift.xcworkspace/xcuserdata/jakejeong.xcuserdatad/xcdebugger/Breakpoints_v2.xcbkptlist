@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IKLibraryDemo/IKLibraryDemo/Popup/IKPopupView.swift"
-            timestampString = "588845347.053553"
+            timestampString = "589077564.157882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "load()"
-            landmarkType = "7">
+            landmarkName = "IKPopupView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IKLibraryDemo/IKLibraryDemo/ViewController.swift"
-            timestampString = "588845347.053755"
+            timestampString = "589077564.157949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,13 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IKLibraryDemo/IKLibraryDemo/Popup/IKPopupView.swift"
-            timestampString = "588845347.053802"
+            timestampString = "589077564.157992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "load(_:)"
-            landmarkType = "7">
+            landmarkName = "IKPopupView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IKLibraryDemo/IKLibraryDemo/Popup/IKPopup.swift"
-            timestampString = "588845347.0538501"
+            timestampString = "589199743.2011499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IKLibraryDemo/IKLibraryDemo/Popup/IKPopup.swift"
-            timestampString = "588845347.054179"
+            timestampString = "589199743.201228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "addAction(action:)"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "didTouchBtnAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IKLibraryDemo/IKLibraryDemo/Popup/IKPopup.swift"
-            timestampString = "588845347.054399"
+            timestampString = "589199743.2012711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "blurBackground()"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "create(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +106,140 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IKLibraryDemo/IKLibraryDemo/Popup/IKPopup.swift"
-            timestampString = "588845347.05463"
+            timestampString = "589199743.201309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "show()"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "didTouchBtnAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IKLibraryDemo/IKLibraryDemo/ViewController.swift"
+            timestampString = "589077564.158227"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "openPopup()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IKLibraryDemo/IKLibraryDemo/ViewController.swift"
+            timestampString = "589077564.158259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "openPopup()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (IKLibraryDemo.IKPopupAction, IKLibraryDemo.IKPopup) -&gt; () in closure #2 () -&gt; IKLibraryDemo.IKPopupAction in IKLibraryDemo.ViewController.openPopup() -&gt; ()"
+                  moduleName = "IKLibraryDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakejeong/Documents/myproject/IKLibrary/IKLibraryDemo/IKLibraryDemo/ViewController.swift"
+                  timestampString = "589074949.398474"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (IKLibraryDemo.IKPopupAction, IKLibraryDemo.IKPopup) -&gt; () in closure #2 () -&gt; IKLibraryDemo.IKPopupAction in IKLibraryDemo.ViewController.openPopup() -&gt; ()"
+                  moduleName = "IKLibraryDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakejeong/Documents/myproject/IKLibrary/IKLibraryDemo/IKLibraryDemo/ViewController.swift"
+                  timestampString = "589074949.3996249"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "94">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IKLibraryDemo/IKLibraryDemo/ViewController.swift"
+            timestampString = "589077564.15829"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "openPopup()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IKLibraryDemo/IKLibraryDemo/Queue/QueueDoubleStack.swift"
+            timestampString = "589077564.158323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "deQueue(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IKLibraryDemo/IKLibraryDemo/Queue/QueueDoubleStack.swift"
+            timestampString = "589077564.158555"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "deQueue(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IKLibraryDemo/IKLibraryDemo/Popup/IKPopup.swift"
+            timestampString = "589199743.201386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "deinit"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

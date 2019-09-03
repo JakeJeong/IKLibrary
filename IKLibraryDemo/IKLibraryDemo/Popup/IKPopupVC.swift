@@ -12,6 +12,8 @@ class IKPopupVC: UIViewController {
    
     
     var popupView : IKPopupView?
+    
+    var effectView : UIVisualEffectView?
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -26,5 +28,7 @@ class IKPopupVC: UIViewController {
 //        self.popupView?.center = self.view.center
 //        self.view.addSubview(self.popupView!)
     }
+    
+    
     
 }

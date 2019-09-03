@@ -10,11 +10,12 @@ import UIKit
 
 
 
-class ViewController: UIViewController {
+class IKPopupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.blue
       
     }
     func openPopup() {
@@ -38,7 +39,7 @@ class ViewController: UIViewController {
                         })
                 })
             }
-            .blurBackground()
+//            .blurBackground()
             .show()
     }
     

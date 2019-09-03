@@ -15,7 +15,7 @@ protocol IKPopupViewProtocol {
     static func load()-> IKPopupView?
 }
 
-protocol IKPopupViewBtnActionProtocol {
+protocol IKPopupViewActionDelegate {
     func IKPopupViewDidTouchButtonAction(sender : UIButton)
 }
 
@@ -29,7 +29,7 @@ class IKPopupView : UIView, IKPopupViewProtocol {
 //    var okAction : IKPopupViewTouchAction!
 //    var cancelAction : IKPopupViewTouchAction!
     
-    var delegate : IKPopupViewBtnActionProtocol?
+    var delegate : IKPopupViewActionDelegate?
     
     private var _identifier : String? = nil
     var identifier : String {

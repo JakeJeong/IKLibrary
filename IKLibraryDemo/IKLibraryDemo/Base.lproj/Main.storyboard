@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iFo-4N-vZB">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,14 +10,74 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="ROa-lN-6i7">
+            <objects>
+                <navigationController id="iFo-4N-vZB" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mPp-b2-nLT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="njb-qz-xa6" kind="relationship" relationship="rootViewController" id="yS9-68-9SI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A5A-yl-lza" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1833" y="75"/>
+        </scene>
+        <!--IKLibrary-->
+        <scene sceneID="kQo-lK-M0c">
+            <objects>
+                <tableViewController id="njb-qz-xa6" customClass="MainListTVC" customModule="IKLibraryDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Aov-oR-rLt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CELL" textLabel="3pP-RN-t3p" rowHeight="92" style="IBUITableViewCellStyleDefault" id="Ugh-oA-FvZ">
+                                <rect key="frame" x="0.0" y="28" width="414" height="92"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ugh-oA-FvZ" id="Yor-GY-cAT">
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="91.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3pP-RN-t3p">
+                                            <rect key="frame" x="20" y="0.0" width="356" height="91.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="njb-qz-xa6" id="cmQ-qq-eyk"/>
+                            <outlet property="delegate" destination="njb-qz-xa6" id="d7u-dR-e1C"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="IKLibrary" largeTitleDisplayMode="always" id="AvE-Ze-RzD"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="IKPopup" id="flI-Bk-Od7"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9gb-NJ-RLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-973.91304347826099" y="75"/>
+        </scene>
+        <!--Popup View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IKLibraryDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IKPopupViewController" customModule="IKLibraryDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vertical.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="LCA-8Y-ltc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuO-Dr-UoA">
                                 <rect key="frame" x="157" y="587" width="100" height="50"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,6 +97,10 @@
                         <constraints>
                             <constraint firstItem="PuO-Dr-UoA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2wY-a8-Gm2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PuO-Dr-UoA" secondAttribute="bottom" constant="225" id="DPJ-tF-Gpc"/>
+                            <constraint firstAttribute="bottom" secondItem="LCA-8Y-ltc" secondAttribute="bottom" id="QIu-b1-uNl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LCA-8Y-ltc" secondAttribute="trailing" id="Zjc-1g-aTX"/>
+                            <constraint firstItem="LCA-8Y-ltc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mKI-ap-saY"/>
+                            <constraint firstItem="LCA-8Y-ltc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ng0-QI-UFm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -46,4 +110,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="vertical.jpeg" width="1262" height="1909"/>
+    </resources>
 </document>

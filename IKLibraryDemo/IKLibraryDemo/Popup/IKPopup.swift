@@ -41,13 +41,13 @@ protocol IKPopupProtocol {
     func dismiss(completion : (() -> Void)?)
 }
 
-class IKPopup : NSObject, IKPopupProtocol, IKPopupViewBtnActionProtocol {
+class IKPopup : NSObject, IKPopupProtocol, IKPopupViewActionDelegate {
 
     
     private var isBlurBackground: Bool = false
     
-    private lazy var window = IKWindow()
-    private lazy var actions = [IKPopupAction]()
+    private var window : IKWindow?
+    private var actions = [IKPopupAction]()
     
     static func create() -> IKPopup?{
         guard let view = create("IKPopupView") else {
@@ -61,10 +61,13 @@ class IKPopup : NSObject, IKPopupProtocol, IKPopupViewBtnActionProtocol {
         }
         let popup = IKPopup()
         print(CFGetRetainCount(popupView))
-        popup.window.rootViewController = IKPopupVC()
-        popup.window.view = popupView
+        if popup.window == nil {
+            popup.window = IKWindow()
+        }
+        popup.window?.rootViewController = IKPopupVC()
+        popup.window?.view = popupView
         print(CFGetRetainCount(popupView))
-        popupView.delegate = popup as IKPopupViewBtnActionProtocol
+        popupView.delegate = popup as IKPopupViewActionDelegate
         return popup
     }
     @objc fileprivate func didTouchBtnAction(_ sender : UIButton) {
@@ -93,24 +96,24 @@ class IKPopup : NSObject, IKPopupProtocol, IKPopupViewBtnActionProtocol {
     }
     
     func addTitle(_ title : String?) -> IKPopup {
-        self.window.view?.titleLabel?.text = title
+        self.window?.view?.titleLabel?.text = title
         return self;
     }
     
     func addMessage(_ message : String?) -> IKPopup {
-        self.window.view?.mesageLabel?.text = message
+        self.window?.view?.mesageLabel?.text = message
         return self;
     }
     func addTitle(_ title : String?, withMessage message : String?) -> IKPopup {
-        self.window.view?.titleLabel?.text = title
-        self.window.view?.mesageLabel?.text = message
+        self.window?.view?.titleLabel?.text = title
+        self.window?.view?.mesageLabel?.text = message
         return self;
     }
     
     func addAction(action : @escaping () -> IKPopupAction) -> IKPopup{
         let popAction = action()
         self.actions.append(popAction)
-        if let result =  self.window.view?.subviews
+        if let result =  self.window?.view?.subviews
             .filter({ guard let btn = $0 as? UIButton else { return false }
                 if popAction.style == .Cancel, btn.isCancelType == true {
                     return true
@@ -126,22 +129,25 @@ class IKPopup : NSObject, IKPopupProtocol, IKPopupViewBtnActionProtocol {
     }
     
     func show() {
-        if IKPopupManager.queue.enQueue(self.window) == false { return }
-        self.window.makeKeyAndVisible()
+        if IKPopupManager.queue.enQueue(self.window!) == false { return }
         
-        UIView.animateKeyframes(withDuration: 0.6, delay: 0, options: .allowUserInteraction, animations: {
-            self.window.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-            self.window.view?.alpha = 0.0;
-            self.window.view?.center = (self.window.popupVC?.view.center)!
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.6/3, animations: {
-                self.window.popupVC?.view.addSubview(self.window.view!)
-            })
-            UIView.addKeyframe(withRelativeStartTime: (0.6/3)*2, relativeDuration: 0.6/3, animations: {
-                self.window.view?.alpha = 0.6;
-            })
-            UIView.addKeyframe(withRelativeStartTime: (0.6/3)*3, relativeDuration: 0.6/3, animations: {
-                self.window.view?.alpha = 1.0;
-            })
+        self.window?.view?.alpha = 0.0;
+        self.window?.popupVC?.view.addSubview(self.window!.view!)
+        self.window?.makeKeyAndVisible()
+        self.window?.view?.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
+        if self.isBlurBackground {
+            self.window?.popupVC?.view.backgroundColor = .clear
+            let blurEffect = UIBlurEffect(style: .light)
+            self.window?.popupVC?.effectView = UIVisualEffectView(effect: blurEffect)
+            self.window?.popupVC?.effectView!.translatesAutoresizingMaskIntoConstraints = false
+            self.window?.popupVC?.view.insertSubview((self.window?.popupVC!.effectView!)!, at: 0)
+            self.window?.popupVC?.effectView!.frame = (self.window?.popupVC?.view.bounds)!
+        }
+        self.window?.view?.center = (self.window?.popupVC?.view.center)!
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .allowUserInteraction, animations: {
+            self.window!.view?.alpha = 1.0;
+            self.window?.view?.transform = CGAffineTransform.identity
+            self.window?.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         }) { (isCompleted) in
             
         }
@@ -152,25 +158,38 @@ class IKPopup : NSObject, IKPopupProtocol, IKPopupViewBtnActionProtocol {
     }
     
     func dismiss(completion: (() -> Void)?) {
-        if let window =  IKPopupManager.queue.deQueue(self.window), window == self.window {
-            
+        if let window =  IKPopupManager.queue.deQueue(self.window!), window == self.window {
+            self.window?.view?.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
             UIView.animateKeyframes(withDuration: 0.6, delay: 0, options: .allowUserInteraction, animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.6/3, animations: {
-                    self.window.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-                    var point = (self.window.popupVC?.view.center)!
-                    point.y -= ((self.window.frame.height) * 1.0)
-                    self.window.view?.center = point
+                    self.window?.backgroundColor = UIColor.black.withAlphaComponent(0.5)
                 })
-                UIView.addKeyframe(withRelativeStartTime: (0.6/3)*2, relativeDuration: 0.6/3, animations: {
-                    self.window.backgroundColor = UIColor.black.withAlphaComponent(0.25)
-                })
-                UIView.addKeyframe(withRelativeStartTime: (0.6/3)*3, relativeDuration: 0.6/3, animations: {
-                    self.window.backgroundColor = UIColor.black.withAlphaComponent(0.0)
+                UIView.addKeyframe(withRelativeStartTime: (0.6/3)*2, relativeDuration: (0.6/3)*2, animations: {
+                    self.window!.view?.alpha = 0.0;
+                    self.window!.backgroundColor = UIColor.black.withAlphaComponent(0.0)
+                    self.window?.view?.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
                 })
             }) { (isCompleted) in
                 window.resignKeyAndUnvisible()
+                if completion != nil {
+                    completion!()
+                }
+                self.clear()
             }
         }
+    }
+    
+    private func clear() {
+        actions.removeAll()
+        window?.popupVC?.effectView = nil
+        window?.popupVC?.popupView = nil
+        window?.view = nil
+        window = nil
+    }
+    
+    deinit {
+        print("denit")
+        clear()
     }
 }
 class IKPopupManager {
