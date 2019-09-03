@@ -16,7 +16,6 @@ struct ExClass {
 struct MenuModel {
     var title : String?
     var list : [ExClass?]
-    
     var count : Int {
         return list.count
     }

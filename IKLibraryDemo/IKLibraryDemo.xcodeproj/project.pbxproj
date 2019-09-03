@@ -202,7 +202,7 @@
 			path = Queue;
 			sourceTree = "<group>";
 		};
-		61406BCF231EA3B8006BC76A /* CustomPopup */ = {
+		61406BCF231EA3B8006BC76A /* CustomPopup(Example) */ = {
 			isa = PBXGroup;
 			children = (
 				61406BD0231EA3D6006BC76A /* CustomPopupView.swift */,
@@ -210,13 +210,13 @@
 				61406BD7231EA9E5006BC76A /* SheetPopup.swift */,
 				61406BD9231EA9F1006BC76A /* SheetPopup.xib */,
 			);
-			path = CustomPopup;
+			path = "CustomPopup(Example)";
 			sourceTree = "<group>";
 		};
 		61406BD4231EA8F4006BC76A /* IKPopup */ = {
 			isa = PBXGroup;
 			children = (
-				61406BCF231EA3B8006BC76A /* CustomPopup */,
+				61406BCF231EA3B8006BC76A /* CustomPopup(Example) */,
 				61406BD5231EA909006BC76A /* Core */,
 			);
 			path = IKPopup;
