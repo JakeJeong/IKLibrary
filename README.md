@@ -14,7 +14,7 @@
 5. SNS Share Kit (kakao, facebook, twitter, apple)
 6. JailBreak Detect
 7. Network Library wrapper
-    - Aramofire wrapper
+    - Alamofire wrapper
 8. Extentions
     - String
     - NSAttributedString
