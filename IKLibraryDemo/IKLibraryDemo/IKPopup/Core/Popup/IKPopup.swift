@@ -95,9 +95,25 @@ class IKPopup : NSObject, IKPopupProtocol, IKPopupViewActionDelegate {
         self.isBlurBackground = true
         return self
     }
+    func updateSize(width : CGFloat, height : CGFloat, animation : Bool ) -> IKPopup {
+        UIView.animate(withDuration: animation ? 0.6 : 0, delay: 0, usingSpringWithDamping: animation ? 0.6 : 0, initialSpringVelocity: animation ? 0.6 : 0, options: .allowUserInteraction, animations: {
+            self.window?.view?.frame =  CGRect.rectCenter(frame: (self.window?.popupVC?.view.frame)!, width: width, height: height)
+        }) { (isCompleted) in
+            
+        }
+        return self;
+    }
+    func updateSize(width : CGFloat, height : CGFloat) -> IKPopup {
+        return updateSize(width: width, height: height, animation: false)
+    }
     
     func addTitle(_ title : String?) -> IKPopup {
         self.window?.view?.titleLabel?.text = title
+        return self;
+    }
+    
+    func addTitle(_ attrubitedString : NSAttributedString?) -> IKPopup {
+        self.window?.view?.titleLabel?.attributedText = attrubitedString
         return self;
     }
     
@@ -105,6 +121,12 @@ class IKPopup : NSObject, IKPopupProtocol, IKPopupViewActionDelegate {
         self.window?.view?.mesageLabel?.text = message
         return self;
     }
+    
+    func addMessage(_ attrubitedString : NSAttributedString?) -> IKPopup {
+        self.window?.view?.mesageLabel?.attributedText = attrubitedString
+        return self;
+    }
+    
     func addTitle(_ title : String?, withMessage message : String?) -> IKPopup {
         self.window?.view?.titleLabel?.text = title
         self.window?.view?.mesageLabel?.text = message

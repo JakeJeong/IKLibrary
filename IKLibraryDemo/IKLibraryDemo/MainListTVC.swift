@@ -38,10 +38,19 @@ class MainListTVC: UITableViewController {
         popupModels.list.append(contentsOf: [
             ExClass(title: "IKPopup", description: "Default IKPopup"),
             ExClass(title: "CustomIKPopup", description: "Custom IKPopup"),
-            ExClass(title: "SheetPopup", description: "Three Buttons IKPopup")
+            ExClass(title: "SheetPopup", description: "Three Buttons IKPopup"),
+            ExClass(title: "AttributedString Popup", description: "Use AttributedString")
             ])
-        
         list.append(popupModels)
+        
+        
+        var popupModel2s = MenuModel(title: "IKCryptor", list: [])
+        popupModel2s.list.append(contentsOf: [
+            ExClass(title: "AES256Encrypt", description: "AES256Encrypt"),
+            ExClass(title: "AES256Decrypt", description: "AES256Decrypt"),
+            ])
+        list.append(popupModel2s)
+        
         self.tableView.reloadData()
     }
 
@@ -81,99 +90,19 @@ class MainListTVC: UITableViewController {
         if let popmodels = self.list[indexPath.section], let exClass = popmodels.list[indexPath.row] {
             switch (exClass.title) {
             case "CustomIKPopup" :
-                openCustomPopup()
+                Popup.openCustomPopup()
             case "IKPopup" :
-                openIKPopup()
+                Popup.openIKPopup()
             case "SheetPopup" :
-                openSheetPopup()
+                Popup.openSheetPopup()
+            case "AttributedString Popup" :
+                Popup.openAttributedStringPopup()
             default: break
                 
             }
         }
     }
-    func openSheetPopup() {
-        IKPopup.create("SheetPopup")?.addMessage("이건 뭘까요?")
-            .addAction { () -> IKPopupAction in
-                return IKPopupAction(
-                    title: "Confirm",
-                    style: .Confirm,
-                    action: { (action, popup) in
-                        print("action!!! -> \(action.title!)")
-                        popup.dismiss()
-                })
-            }
-            .addAction { () -> IKPopupAction in
-                return IKPopupAction(
-                    title: "Cancel",
-                    style: .Cancel,
-                    action: { (action, popup) in
-                        popup.dismiss(completion: {
-                            print("action!!! -> \(action.title!)")
-                        })
-                })
-            }
-            .addAction { () -> IKPopupAction in
-                return IKPopupAction(
-                    title: "ETC",
-                    style: .Other,
-                    action: { (action, popup) in
-                        popup.dismiss(completion: {
-                            print("action!!! -> \(action.title!)")
-                        })
-                })
-            }
-            .blurBackground()
-            .show()
-    }
     
-    func openCustomPopup() {
-        IKPopup.create("CustomPopupView")?.addTitle("CustomPopupView", withMessage: "Custom Popup in Message")
-            .addAction { () -> IKPopupAction in
-                return IKPopupAction(
-                    title: "Confirm",
-                    style: .Confirm,
-                    action: { (action, popup) in
-                        print("action!!! -> \(action.title!)")
-                        popup.dismiss()
-                })
-            }
-            .addAction { () -> IKPopupAction in
-                return IKPopupAction(
-                    title: "Cancel",
-                    style: .Cancel,
-                    action: { (action, popup) in
-                        popup.dismiss(completion: {
-                            print("action!!! -> \(action.title!)")
-                        })
-                })
-            }
-            .blurBackground()
-            .show()
-    }
-    func openIKPopup() {
-        IKPopup.create()?.addTitle("제목", withMessage: "메세지")
-            .addAction { () -> IKPopupAction in
-                return IKPopupAction(
-                    title: "확인",
-                    style: .Confirm,
-                    action: { (action, popup) in
-                        print("action!!! -> \(action.title!)")
-                        popup.dismiss()
-                })
-            }
-            .addAction { () -> IKPopupAction in
-                return IKPopupAction(
-                    title: "취소",
-                    style: .Cancel,
-                    action: { (action, popup) in
-                        popup.dismiss(completion: {
-                            print("action!!! -> \(action.title!)")
-                        })
-                })
-            }
-            //            .blurBackground()
-            .show()
-    }
 
     /*
     // Override to support conditional editing of the table view.
