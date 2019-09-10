@@ -52,6 +52,8 @@ class MainListTVC: UITableViewController {
         list.append(popupModel2s)
         
         self.tableView.reloadData()
+        
+        
     }
 
     // MARK: - Table view data source
@@ -102,8 +104,6 @@ class MainListTVC: UITableViewController {
             }
         }
     }
-    
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

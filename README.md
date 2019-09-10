@@ -4,9 +4,8 @@
     - Custom Alert
     - Custom Simple UI
 2. Cryptor
-    - AES256
-    - HMAC
-    - BCrypt
+    - CryptoSwift
+        - https://github.com/krzyzanowskim/CryptoSwift/tree/master/Sources/CryptoSwift
 3. HUD
     - Loading Progress
 4. Localizable
