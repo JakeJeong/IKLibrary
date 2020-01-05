@@ -62,6 +62,18 @@ class MainListTVC: UITableViewController {
             ])
         list.append(popupModel3s)
         
+        let string1 = "대한민국"
+        print("isKorean \(string1) -> ",string1.isKorean ? "true" : "false")
+        
+        let string2 = "https://www.naver.com"
+        print("isURLType \(string2) -> ",string2.isURLType ? "true" : "false")
+        
+        print("isOnlyEng \(string1) -> ",string1.isOnlyEng ? "true" : "false")
+        print("isOnlyEng \(string2) -> ",string2.isOnlyEng ? "true" : "false")
+        
+        print("findURL -> \(string2) ->", string2.findURL ?? "")
+        print("findURL -> \(string1) ->", string1.findURL ?? "!! Not Found !!")
+        
         self.tableView.reloadData()
         
         
