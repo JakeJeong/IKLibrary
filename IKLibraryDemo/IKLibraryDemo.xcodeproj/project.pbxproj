@@ -137,9 +137,9 @@
 		3B0B88E623C2342800F4754D /* IKProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				3B0B88E723C2342800F4754D /* IKProgressView.swift */,
 				3B0B88E823C2342800F4754D /* IKProgressHUD.swift */,
 				3B0B88E923C2342800F4754D /* IKProgressWindow.swift */,
+				3B0B88E723C2342800F4754D /* IKProgressView.swift */,
 				3B0B88EA23C2342800F4754D /* IKProgressView.xib */,
 			);
 			path = IKProgressHUD;
