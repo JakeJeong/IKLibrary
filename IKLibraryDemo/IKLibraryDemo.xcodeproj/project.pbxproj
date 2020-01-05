@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0B88EB23C2342800F4754D /* IKProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B88E723C2342800F4754D /* IKProgressView.swift */; };
+		3B0B88EC23C2342800F4754D /* IKProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B88E823C2342800F4754D /* IKProgressHUD.swift */; };
+		3B0B88ED23C2342800F4754D /* IKProgressWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B88E923C2342800F4754D /* IKProgressWindow.swift */; };
+		3B0B88EE23C2342800F4754D /* IKProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B0B88EA23C2342800F4754D /* IKProgressView.xib */; };
 		5677EF1C23163727006F872E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5677EF1B23163727006F872E /* AppDelegate.swift */; };
 		5677EF2123163727006F872E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5677EF1F23163727006F872E /* Main.storyboard */; };
 		5677EF2323163728006F872E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5677EF2223163728006F872E /* Assets.xcassets */; };
@@ -66,6 +70,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B0B88E723C2342800F4754D /* IKProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKProgressView.swift; sourceTree = "<group>"; };
+		3B0B88E823C2342800F4754D /* IKProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKProgressHUD.swift; sourceTree = "<group>"; };
+		3B0B88E923C2342800F4754D /* IKProgressWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKProgressWindow.swift; sourceTree = "<group>"; };
+		3B0B88EA23C2342800F4754D /* IKProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IKProgressView.xib; sourceTree = "<group>"; };
 		5677EF1823163727006F872E /* IKLibraryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IKLibraryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5677EF1B23163727006F872E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5677EF2023163727006F872E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +132,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B0B88E623C2342800F4754D /* IKProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				3B0B88E723C2342800F4754D /* IKProgressView.swift */,
+				3B0B88E823C2342800F4754D /* IKProgressHUD.swift */,
+				3B0B88E923C2342800F4754D /* IKProgressWindow.swift */,
+				3B0B88EA23C2342800F4754D /* IKProgressView.xib */,
+			);
+			path = IKProgressHUD;
+			sourceTree = "<group>";
+		};
 		5677EF0F23163727006F872E = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +171,7 @@
 				56E0F813231E77D4002EB278 /* MainListTVC.swift */,
 				568A54182326417B007A0B18 /* Popup.swift */,
 				56E0F815231F49AB002EB278 /* IKExtention */,
+				3B0B88E623C2342800F4754D /* IKProgressHUD */,
 				61406BD4231EA8F4006BC76A /* IKPopup */,
 				5677EF1F23163727006F872E /* Main.storyboard */,
 				5677EF2223163728006F872E /* Assets.xcassets */,
@@ -366,6 +386,7 @@
 				5677EF2123163727006F872E /* Main.storyboard in Resources */,
 				61406BD3231EA3E0006BC76A /* CustomPopupView.xib in Resources */,
 				61406BDA231EA9F1006BC76A /* SheetPopup.xib in Resources */,
+				3B0B88EE23C2342800F4754D /* IKProgressView.xib in Resources */,
 				5677EF8623164B88006F872E /* IKPopupView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +415,8 @@
 				5677EF8F2318AB99006F872E /* Queue.swift in Sources */,
 				61406BD1231EA3D6006BC76A /* CustomPopupView.swift in Sources */,
 				56E0F814231E77D4002EB278 /* MainListTVC.swift in Sources */,
+				3B0B88EC23C2342800F4754D /* IKProgressHUD.swift in Sources */,
+				3B0B88EB23C2342800F4754D /* IKProgressView.swift in Sources */,
 				5677EF802316469E006F872E /* IKPopup.swift in Sources */,
 				56E0F817231F49C6002EB278 /* CGRect+Extention.swift in Sources */,
 				5677EF8C2318A064006F872E /* UIWindow+Extention.swift in Sources */,
@@ -403,6 +426,7 @@
 				568A54192326417B007A0B18 /* Popup.swift in Sources */,
 				5677EF8423164990006F872E /* IKPopupView.swift in Sources */,
 				5677EF912318AC42006F872E /* QueueDoubleStack.swift in Sources */,
+				3B0B88ED23C2342800F4754D /* IKProgressWindow.swift in Sources */,
 				61406BD8231EA9E5006BC76A /* SheetPopup.swift in Sources */,
 				5677EF932318AFCD006F872E /* IKWindow.swift in Sources */,
 				5677EF9523190A86006F872E /* IKPopupVC.swift in Sources */,

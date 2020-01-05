@@ -27,6 +27,8 @@ class MainListTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -40,16 +42,25 @@ class MainListTVC: UITableViewController {
             ExClass(title: "CustomIKPopup", description: "Custom IKPopup"),
             ExClass(title: "SheetPopup", description: "Three Buttons IKPopup"),
             ExClass(title: "AttributedString Popup", description: "Use AttributedString")
-            ])
+        ])
         list.append(popupModels)
         
-        
-        var popupModel2s = MenuModel(title: "IKCryptor", list: [])
+        var popupModel2s = MenuModel(title: "IKProgressHUD", list: [])
         popupModel2s.list.append(contentsOf: [
+            ExClass(title: "IKProgressHUD show", description: "showProgress"),
+            ExClass(title: "IKProgressHUD show Delay", description: "showProgress"),
+            ExClass(title: "IKProgressHUD show Delay Completion", description: "showProgress"),
+            ExClass(title: "IKProgressHUD dismiss", description: "dismissProgress"),
+        ])
+        list.append(popupModel2s)
+        
+        
+        var popupModel3s = MenuModel(title: "IKCryptor", list: [])
+        popupModel3s.list.append(contentsOf: [
             ExClass(title: "AES256Encrypt", description: "AES256Encrypt"),
             ExClass(title: "AES256Decrypt", description: "AES256Decrypt"),
             ])
-        list.append(popupModel2s)
+        list.append(popupModel3s)
         
         self.tableView.reloadData()
         
@@ -99,6 +110,16 @@ class MainListTVC: UITableViewController {
                 Popup.openSheetPopup()
             case "AttributedString Popup" :
                 Popup.openAttributedStringPopup()
+            case "IKProgressHUD show" :
+                IKProgressHUD.show()
+            case "IKProgressHUD show Delay" :
+                IKProgressHUD.show(dismissDelay: 3.0)
+            case "IKProgressHUD show Delay Completion":
+                IKProgressHUD.show(dismissDelay: 3.0) {
+                    print("Completion IKProgressHUD Show")
+                }
+            case "IKProgressHUD dismiss" :
+                IKProgressHUD.dismiss()
             default: break
                 
             }
@@ -120,7 +141,7 @@ class MainListTVC: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
