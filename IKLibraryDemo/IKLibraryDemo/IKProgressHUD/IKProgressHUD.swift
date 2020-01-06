@@ -54,8 +54,19 @@ class IKProgressHUD: NSObject {
             }
         }
     }
-    
     static func dismiss() {
+        dismiss(delay: 0);
+    }
+    static func dismiss(delay : TimeInterval) {
+        if (delay != 0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                dismiss(delay: 0, completion: nil)
+            }
+        } else {
+            dismiss(delay: 0, completion: nil)
+        }
+    }
+    static func dismiss(delay : TimeInterval, completion : (()->Void)?) {
         IKProgressHUD.shared.window.view.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
         UIView.animateKeyframes(withDuration: 0.6, delay: 0, options: .allowUserInteraction, animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.6/3, animations: {

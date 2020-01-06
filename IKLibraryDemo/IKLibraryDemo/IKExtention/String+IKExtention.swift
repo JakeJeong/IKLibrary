@@ -19,28 +19,63 @@ extension String {
         }
     }
     
-    private static let koreanFormat = ".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*"
+    private static func checkRegex(string : String, format : String) -> Bool {
+        let checkp = NSPredicate.init(format: "SELF MATCHES %@", format)
+        return checkp.evaluate(with: string)
+    }
+    
     var isKorean : Bool {
         get {
             if (self.count == 0){
                 return false
             }
-            let checkp = NSPredicate.init(format: "SELF MATCHES %@", String.koreanFormat)
-            return checkp.evaluate(with: self)
+            return String.checkRegex(string: self,
+                                     format: ".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*")
         }
     }
     
-    private static let onlyEnglishFormat = "^[a-zA-Z0-9 !@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?~`\\n]*$"
     var isOnlyEng : Bool {
         get {
             if (self.count == 0){
                 return false
             }
-            let checkp = NSPredicate.init(format: "SELF MATCHES %@", String.onlyEnglishFormat)
-            return checkp.evaluate(with: self)
+             return String.checkRegex(string: self,
+                                      format: "^[a-zA-Z0-9 !@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?~`\\n]*$")
+        }
+    }
+
+    var isHTML : Bool {
+        get {
+            if (self.count == 0){
+                return false
+            }
+            return String.checkRegex(string: self,
+                                     format: "<s*[a-zA-Z0-9][^>]*>(.*?)<[/]+?s*[a-zA-Z0-9][^>]*>")
         }
     }
     
+    var isValidKoreanPhoneNumber : Bool {
+        get {
+            if (self.count == 0){
+                return false
+            }
+            let phoneNumber = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
+            var someRegex : String
+            if (phoneNumber.hasPrefix("010")) {
+                if (phoneNumber.count != 11) {
+                    return false
+                }
+                someRegex = "^010+([0-9]{4})+([0-9]{4})$"
+            } else {
+                if phoneNumber.count < 10 {
+                    return false
+                }
+                someRegex = "^01([1|6|7|8|9]?)+([0-9]{3,4})+([0-9]{4})$"
+            }
+            return String.checkRegex(string: phoneNumber,
+                                     format: someRegex)
+        }
+    }
     
     var isURLType : Bool {
         get {
@@ -84,5 +119,31 @@ extension String {
             }
             return _findURL
         }
+    }
+    
+    var isNumeric : Bool {
+        get {
+            if (self.count == 0){
+                return false
+            }
+            let sc = Scanner.init(string: self)
+            sc.charactersToBeSkipped = .punctuationCharacters
+            var value : Float = 0
+            while sc.scanFloat(&value) {
+                print(value)
+            }
+            return sc.isAtEnd
+        }
+    }
+    
+    static func PersonName(familyName : String?, givenName : String?) -> String {
+        var components =  PersonNameComponents.init()
+        components.familyName = familyName
+        components.givenName = givenName
+        return PersonNameComponentsFormatter.localizedString(from: components, style: .default, options: .init())
+    }
+    
+    static func PersonName(firstName : String?, lastName : String?) -> String {
+        return PersonName(familyName: lastName, givenName: firstName)
     }
 }

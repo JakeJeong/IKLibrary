@@ -24,15 +24,15 @@ struct MenuModel {
 class MainListTVC: UITableViewController {
     
     var list : [MenuModel?] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
@@ -59,39 +59,33 @@ class MainListTVC: UITableViewController {
         popupModel3s.list.append(contentsOf: [
             ExClass(title: "AES256Encrypt", description: "AES256Encrypt"),
             ExClass(title: "AES256Decrypt", description: "AES256Decrypt"),
-            ])
+        ])
         list.append(popupModel3s)
         
-        let string1 = "대한민국"
-        print("isKorean \(string1) -> ",string1.isKorean ? "true" : "false")
+        var popupModel4s = MenuModel(title: "String+IKExtention", list: [])
+        popupModel4s.list.append(contentsOf: [
+            ExClass(title: "StringExtentions", description: ""),
+        ])
+        list.append(popupModel4s)
         
-        let string2 = "https://www.naver.com"
-        print("isURLType \(string2) -> ",string2.isURLType ? "true" : "false")
-        
-        print("isOnlyEng \(string1) -> ",string1.isOnlyEng ? "true" : "false")
-        print("isOnlyEng \(string2) -> ",string2.isOnlyEng ? "true" : "false")
-        
-        print("findURL -> \(string2) ->", string2.findURL ?? "")
-        print("findURL -> \(string1) ->", string1.findURL ?? "!! Not Found !!")
         
         self.tableView.reloadData()
         
-        
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return self.list.count
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         let popmodels = self.list[section]
         return popmodels!.count
     }
-
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let popmodels = self.list[section] else {
             return nil
@@ -132,54 +126,88 @@ class MainListTVC: UITableViewController {
                 }
             case "IKProgressHUD dismiss" :
                 IKProgressHUD.dismiss()
+            case "StringExtentions" :
+                stringExtentionExamples()
             default: break
                 
             }
         }
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func stringExtentionExamples() {
+        let string1 = "대한민국"
+        print("isKorean : \(string1) -> ",string1.isKorean ? "true" : "false")
+        
+        let string2 = "https://www.naver.com"
+        print("isURLType : \(string2) -> ",string2.isURLType ? "true" : "false")
+        
+        print("isOnlyEng : \(string1) -> ",string1.isOnlyEng ? "true" : "false")
+        print("isOnlyEng : \(string2) -> ",string2.isOnlyEng ? "true" : "false")
+        
+        print("findURL : -> \(string2) ->", string2.findURL ?? "")
+        print("findURL : -> \(string1) ->", string1.findURL ?? "!! Not Found !!")
+        
+        let numeric = "09-09,0909"
+        print("isNumeric : -> \(numeric)",numeric.isNumeric ? "true" : "false")
+        
+        let familyName = "김"
+        let givenName = "철수"
+        
+        print("PersonName : -> \(String.PersonName(familyName: familyName, givenName: givenName))")
+        
+        let html = "<html></html>"
+        print("isHTML : \(html)", html.isHTML ? "true" : "false")
+        
+        
+        let koreanPhoneNumber1 = "010-9999-9999"
+        print("isValidKoreanPhoneNumber : \(koreanPhoneNumber1)", koreanPhoneNumber1.isValidKoreanPhoneNumber ? "true" : "false")
+        
+        let koreanPhoneNumber2 = "090-9999-9999"
+        print("isValidKoreanPhoneNumber : \(koreanPhoneNumber2)", koreanPhoneNumber2.isValidKoreanPhoneNumber ? "true" : "false")
     }
-    */
-
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

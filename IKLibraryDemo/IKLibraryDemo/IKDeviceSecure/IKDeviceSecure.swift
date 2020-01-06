@@ -15,27 +15,33 @@ class IKDeviceSecure : NSObject {
         checkReadWritePermissions()
     }
     
-    @inline(__always) private static func checkJailbreakSymlinks() {
+    @inline(__always)
+    private static func checkJailbreakSymlinks() {
         
     }
     
-    @inline(__always) private static func checkJailbreakSymLink(checkPath : String) {
+    @inline(__always)
+    private static func checkJailbreakSymLink(checkPath : String) {
         
     }
    
-    @inline(__always) private static func checkJailbreakFiles() {
+    @inline(__always)
+    private static func checkJailbreakFiles() {
         
     }
     
-    @inline(__always) private static func checkJailbreakFile(checkPath : String) {
+    @inline(__always)
+    private static func checkJailbreakFile(checkPath : String) {
         
     }
     
-    @inline(__always) private static func checkReadWritePermissions() {
+    @inline(__always)
+    private static func checkReadWritePermissions() {
         
     }
     
-    @inline(__always) private static func foundJailbrokenDevice() {
+    @inline(__always)
+    private static func foundJailbrokenDevice() {
         
     }
 }
