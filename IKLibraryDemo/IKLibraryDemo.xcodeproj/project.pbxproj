@@ -37,6 +37,8 @@
 		61406BD3231EA3E0006BC76A /* CustomPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61406BD2231EA3E0006BC76A /* CustomPopupView.xib */; };
 		61406BD8231EA9E5006BC76A /* SheetPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61406BD7231EA9E5006BC76A /* SheetPopup.swift */; };
 		61406BDA231EA9F1006BC76A /* SheetPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61406BD9231EA9F1006BC76A /* SheetPopup.xib */; };
+		A8B6FAC023C2D11B00E03E70 /* IKDeviceSecure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6FABF23C2D11B00E03E70 /* IKDeviceSecure.swift */; };
+		A8B6FAC423C2D36400E03E70 /* LOOCryptString.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6FAC323C2D36400E03E70 /* LOOCryptString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,9 @@
 		61406BD2231EA3E0006BC76A /* CustomPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPopupView.xib; sourceTree = "<group>"; };
 		61406BD7231EA9E5006BC76A /* SheetPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPopup.swift; sourceTree = "<group>"; };
 		61406BD9231EA9F1006BC76A /* SheetPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheetPopup.xib; sourceTree = "<group>"; };
+		A8B6FABF23C2D11B00E03E70 /* IKDeviceSecure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKDeviceSecure.swift; sourceTree = "<group>"; };
+		A8B6FAC223C2D36400E03E70 /* LOOCryptString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOOCryptString.h; sourceTree = "<group>"; };
+		A8B6FAC323C2D36400E03E70 /* LOOCryptString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOOCryptString.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +185,7 @@
 				5677EF1B23163727006F872E /* AppDelegate.swift */,
 				56E0F813231E77D4002EB278 /* MainListTVC.swift */,
 				568A54182326417B007A0B18 /* Popup.swift */,
+				A8B6FABE23C2D10D00E03E70 /* IKDeviceSecure */,
 				3B0B88F123C235A800F4754D /* IKExtention */,
 				3B0B88E623C2342800F4754D /* IKProgressHUD */,
 				61406BD4231EA8F4006BC76A /* IKPopup */,
@@ -277,6 +283,24 @@
 				56E0F816231F49C6002EB278 /* CGRect+Extention.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		A8B6FABE23C2D10D00E03E70 /* IKDeviceSecure */ = {
+			isa = PBXGroup;
+			children = (
+				A8B6FABF23C2D11B00E03E70 /* IKDeviceSecure.swift */,
+				A8B6FAC123C2D36400E03E70 /* LOOCryptString */,
+			);
+			path = IKDeviceSecure;
+			sourceTree = "<group>";
+		};
+		A8B6FAC123C2D36400E03E70 /* LOOCryptString */ = {
+			isa = PBXGroup;
+			children = (
+				A8B6FAC223C2D36400E03E70 /* LOOCryptString.h */,
+				A8B6FAC323C2D36400E03E70 /* LOOCryptString.m */,
+			);
+			path = LOOCryptString;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,7 +456,9 @@
 				5677EF912318AC42006F872E /* QueueDoubleStack.swift in Sources */,
 				3B0B88ED23C2342800F4754D /* IKProgressWindow.swift in Sources */,
 				61406BD8231EA9E5006BC76A /* SheetPopup.swift in Sources */,
+				A8B6FAC423C2D36400E03E70 /* LOOCryptString.m in Sources */,
 				5677EF932318AFCD006F872E /* IKWindow.swift in Sources */,
+				A8B6FAC023C2D11B00E03E70 /* IKDeviceSecure.swift in Sources */,
 				5677EF9523190A86006F872E /* IKPopupVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
