@@ -68,7 +68,15 @@ class MainListTVC: UITableViewController {
         ])
         list.append(popupModel4s)
         
+        var popupModel5s = MenuModel(title: "IKLocalization", list: [])
+        popupModel5s.list.append(contentsOf: [
+            ExClass(title: "Select Language", description: ""),
+            ExClass(title: "addObserverDidChanged", description: ""),
+            ExClass(title: "removeObserverDidChanged", description: ""),
+        ])
+        list.append(popupModel5s)
         
+    
         self.tableView.reloadData()
         
     }
@@ -82,15 +90,17 @@ class MainListTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let popmodels = self.list[section]
-        return popmodels!.count
+        guard let popmodels = self.list[section] else {
+            return 0
+        }
+        return popmodels.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let popmodels = self.list[section] else {
             return nil
         }
-        return popmodels.title
+        return popmodels.title ?? ""
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,10 +138,80 @@ class MainListTVC: UITableViewController {
                 IKProgressHUD.dismiss()
             case "StringExtentions" :
                 stringExtentionExamples()
+            case "Select Language" :
+                localizationExamples()
+            case "addObserverDidChanged" :
+                localizationAddExamples()
+            case "removeObserverDidChanged" :
+                localizationRemoveExamples()
             default: break
                 
             }
         }
+    }
+    func localizationExamples() {
+        IKPopup.create()?.addMessage("언어를 선택하세요")
+            .addAction { () -> IKPopupAction in
+                return IKPopupAction(
+                    title: "KOR",
+                    style: .Confirm,
+                    action: { (action, popup) in
+                        popup.dismiss(completion: {
+                            IKLocalization.language = .kor
+                        })
+                })
+        }
+        .addAction { () -> IKPopupAction in
+            return IKPopupAction(
+                title: "ENG",
+                style: .Cancel,
+                action: { (action, popup) in
+                    popup.dismiss(completion: {
+                        IKLocalization.language = .eng
+                    })
+            })
+        }
+        .addAction { () -> IKPopupAction in
+            return IKPopupAction(
+                title: "VIE",
+                style: .Other,
+                action: { (action, popup) in
+                    popup.dismiss(completion: {
+                        IKLocalization.language = .vie
+                    })
+            })
+        }
+        .addAction { () -> IKPopupAction in
+            return IKPopupAction(
+                title: "IDN",
+                style: .Other,
+                action: { (action, popup) in
+                    popup.dismiss(completion: {
+                        IKLocalization.language = .idn
+                    })
+            })
+        }
+        .blurBackground()
+        .show()
+    }
+    func localizationAddExamples() {
+        IKLocalization.addObserverDidChanged(MainListTVC.self, { lang in
+            var language = ""
+            switch lang {
+            case .eng:
+                language = "ENG"
+            case .kor:
+                language = "KOR"
+            case .idn:
+                language = "IDN"
+            case .vie:
+                language = "VIE"
+            }
+            print("IKLocalization Changed : \(language)")
+        })
+    }
+    func localizationRemoveExamples() {
+        IKLocalization.removeObserverDidChanged(MainListTVC.self)
     }
     
     func stringExtentionExamples() {
