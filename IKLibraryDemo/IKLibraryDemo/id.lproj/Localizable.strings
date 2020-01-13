@@ -1,0 +1,36 @@
+/* 
+	Localization.strings
+	Created by JakeJeong (jikturbo@gmail.com) on 2020. 01. 10..
+	https://drive.google.com/drive/folders/1hTEvjY0YDP8G8RmZC1EOoEmpYlZ6a1wM
+*/
+//전체적으로 공통으로 사용되는 단어들
+"kHOME" = "rumah";
+"kKOREAN" = "Korea";
+"kENGLISH" = "Inggris";
+"kCANCEL" = "membatalkan";
+"kNEXT" = "lanjut";
+"kLOGIN" = "Gabung";
+
+//Join에서 사용되는 단어들 (기능별로 정의)
+"kJOIN_SERVICE_AREA" = "Pilih area layanan";
+"kJOIN_ALL_COUNTRIES" = "National Service";
+"kJOIN_SELECT_AREA" = "Pilih wilayah Anda";
+"kJOIN_TERMS" = "hal";
+"kJOIN_ACCEPT_TERMS" = "Ketentuan perjanjian";
+"kJOIN_ALL_AGREE" = "semua setuju";
+"kJOIN_TERMS_OF_SERVICE" = "Persyaratan Layanan";
+"kJOIN_AGREE_TERM" = "Saya setuju dengan semua persyaratan.";
+"kJOIN_TO_AGREE" = "Menyetujui";
+"kJOIN_VIEW_TERM" = "lebih profesional";
+
+//HTML Example (Android CDATA)
+"kHTML_EXAMPLE_HTML" = "Top <font color = '# ff3030'> 10 anjing </ font> !!";
+
+//iOS Default Comment
+"NSCameraUsageDescription" = "Gambar yang digunakan untuk transmisi dan merekam.";
+"NSPhotoLibraryAddUsageDescription" = "akses foto ini diperlukan untuk menyimpan gambar.";
+"NSPhotoLibraryUsageDescription" = "foto ini hak akses akan perlu memilih gambar.";
+"NSLocationWhenInUseUsageDescription" = "Alamat akan digunakan untuk pencarian dan masukan.";
+"NSLocationAlwaysUsageDescription" = "Hal ini digunakan dalam layanan dalam pengaturan negara.";
+"NSContactsUsageDescription" = "Sinkronisasi kontak dan kontak memerlukan akses ke teman.";
+"CFBundleDisplayName" = "Nama aplikasi";

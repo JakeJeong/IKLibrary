@@ -30,6 +30,8 @@ class MainListTVC: UITableViewController {
         
         
         
+        IKLocalization.language = .kor
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -53,6 +55,7 @@ class MainListTVC: UITableViewController {
             ExClass(title: "IKProgressHUD dismiss", description: "dismissProgress"),
         ])
         list.append(popupModel2s)
+
         
         
         var popupModel3s = MenuModel(title: "IKCryptor", list: [])
@@ -208,6 +211,9 @@ class MainListTVC: UITableViewController {
                 language = "VIE"
             }
             print("IKLocalization Changed : \(language)")
+            
+            print("\(kNEXT.local)")
+            print("\(kJOIN_TERMS.local)")
         })
     }
     func localizationRemoveExamples() {

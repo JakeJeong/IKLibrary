@@ -1,0 +1,36 @@
+/* 
+	Localization.strings
+	Created by JakeJeong (jikturbo@gmail.com) on 2020. 01. 10..
+	https://drive.google.com/drive/folders/1hTEvjY0YDP8G8RmZC1EOoEmpYlZ6a1wM
+*/
+//전체적으로 공통으로 사용되는 단어들
+"kHOME" = "home";
+"kKOREAN" = "Korean";
+"kENGLISH" = "English";
+"kCANCEL" = "cancel";
+"kNEXT" = "next";
+"kLOGIN" = "login";
+
+//Join에서 사용되는 단어들 (기능별로 정의)
+"kJOIN_SERVICE_AREA" = "Select the service area";
+"kJOIN_ALL_COUNTRIES" = "National Service";
+"kJOIN_SELECT_AREA" = "Choose your region";
+"kJOIN_TERMS" = "terms";
+"kJOIN_ACCEPT_TERMS" = "Terms of agreement";
+"kJOIN_ALL_AGREE" = "All agree";
+"kJOIN_TERMS_OF_SERVICE" = "Terms of Service";
+"kJOIN_AGREE_TERM" = "I agree to all the terms.";
+"kJOIN_TO_AGREE" = "To agree";
+"kJOIN_VIEW_TERM" = "More professional";
+
+//HTML Example (Android CDATA)
+"kHTML_EXAMPLE_HTML" = "Top <font color = '#ff3030'> 10 EA </font> !!";
+
+//iOS Default Comment
+"NSCameraUsageDescription" = "Images are used for transmission and recording.";
+"NSPhotoLibraryAddUsageDescription" = "This photo access is required to store the image.";
+"NSPhotoLibraryUsageDescription" = "This photo access rights will need to select the images.";
+"NSLocationWhenInUseUsageDescription" = "Address will be used for search and input.";
+"NSLocationAlwaysUsageDescription" = "It is used in service in a country setting.";
+"NSContactsUsageDescription" = "Synchronize contacts and the contacts need access to a friend.";
+"CFBundleDisplayName" = "App Name";

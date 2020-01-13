@@ -1,0 +1,36 @@
+/* 
+	Localization.strings
+	Created by JakeJeong (jikturbo@gmail.com) on 2020. 01. 10..
+	https://drive.google.com/drive/folders/1hTEvjY0YDP8G8RmZC1EOoEmpYlZ6a1wM
+*/
+//전체적으로 공통으로 사용되는 단어들
+"kHOME" = "홈";
+"kKOREAN" = "한국어";
+"kENGLISH" = "English";
+"kCANCEL" = "취소";
+"kNEXT" = "다음";
+"kLOGIN" = "로그인";
+
+//Join에서 사용되는 단어들 (기능별로 정의)
+"kJOIN_SERVICE_AREA" = "서비스 지역 선택";
+"kJOIN_ALL_COUNTRIES" = "서비스 국가";
+"kJOIN_SELECT_AREA" = "지역 선택";
+"kJOIN_TERMS" = "약관";
+"kJOIN_ACCEPT_TERMS" = "약관 동의";
+"kJOIN_ALL_AGREE" = "모두 동의";
+"kJOIN_TERMS_OF_SERVICE" = "서비스 이용 약관";
+"kJOIN_AGREE_TERM" = "모든 약관에 동의합니다.";
+"kJOIN_TO_AGREE" = "동의하기";
+"kJOIN_VIEW_TERM" = "전문보기";
+
+//HTML Example (Android CDATA)
+"kHTML_EXAMPLE_HTML" = "최고 <font color='#ff3030'>10개</font> !!";
+
+//iOS Default Comment
+"NSCameraUsageDescription" = "이미지 전송 및 촬영에 사용됩니다.";
+"NSPhotoLibraryAddUsageDescription" = "이미지를 저장하기 위해 사진접근 권한이 필요합니다.";
+"NSPhotoLibraryUsageDescription" = "이미지를 선택하기 위해 사진접근 권한이 필요합니다.";
+"NSLocationWhenInUseUsageDescription" = "주소 검색 및 입력에 사용됩니다.";
+"NSLocationAlwaysUsageDescription" = "서비스 국가 설정에 사용됩니다.";
+"NSContactsUsageDescription" = "연락처를 동기화 하고 친구초대를 위해 연락처 접근권한이 필요합니다.";
+"CFBundleDisplayName" = "App Name";

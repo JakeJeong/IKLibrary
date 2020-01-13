@@ -9,18 +9,30 @@
 import Foundation
 
 
-enum IKLanguage {
-    case kor
-    case eng
-    case idn
-    case vie
+enum IKLanguage : String {
+    case kor = "ko"
+    case eng = "en"
+    case idn = "id"
+    case vie = "vnm"
+}
+
+func IKLocal( _ localizationKey: String) -> String{
+    return ""
 }
 class IKLocalization: NSObject {
     
-    static private let shared = IKLocalization()
+    static fileprivate let shared = IKLocalization()
     static let didChangedNotification = NSNotification.Name("IKLocalizationDidChangedNotification")
-    
     private var lists : [String:((IKLanguage)->Void)?] = [:]
+    
+    fileprivate var bundle : Bundle? {
+        get {
+            guard let path = Bundle.main.path(forResource: _lanuage?.rawValue ?? "", ofType: "lproj") else {
+                return nil
+            }
+            return Bundle.init(path:path)
+        }
+    }
     
     private var _lanuage : IKLanguage?
     static var language : IKLanguage? {
@@ -60,5 +72,10 @@ class IKLocalization: NSObject {
             }
         }
         print(IKLocalization.shared.lists)
+    }
+}
+extension String {
+    var local : String {
+        return IKLocalization.shared.bundle?.localizedString(forKey: self, value: nil, table: nil) ?? ""
     }
 }
