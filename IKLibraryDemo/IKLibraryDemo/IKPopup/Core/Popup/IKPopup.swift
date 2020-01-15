@@ -119,6 +119,7 @@ class IKPopup : NSObject, IKPopupProtocol, IKPopupViewActionDelegate {
     
     func addMessage(_ message : String?) -> IKPopup {
         self.window?.view?.mesageLabel?.text = message
+        self.window?.view?.mesageLabel?.textColor = UIColor.main.autoColor
         return self;
     }
     

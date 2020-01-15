@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 enum IKLanguage : String {
@@ -79,3 +80,50 @@ extension String {
         return IKLocalization.shared.bundle?.localizedString(forKey: self, value: nil, table: nil) ?? ""
     }
 }
+
+typealias IKLocalizationDidChangeClosure = (_ languge : IKLanguage) -> Void
+
+protocol IKLocalizationProtocol {
+    func LocalizationDidChanged(listener: IKLocalizationDidChangeClosure?)
+}
+
+extension UIViewController : IKLocalizationProtocol {
+    fileprivate var onLocalizationDidChangeClosure: IKLocalizationDidChangeClosure? {
+        get {
+            let wrapper =
+                objc_getAssociatedObject(self, &icAssociationKey) as? ClosureWrapper
+            return wrapper?.closure
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self,
+                                     &icAssociationKey,
+                                     ClosureWrapper(newValue),
+                                     .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+}
+
+extension IKLocalizationProtocol where Self : UIViewController {
+    func LocalizationDidChanged(listener: IKLocalizationDidChangeClosure?) {
+        self.onLocalizationDidChangeClosure = listener
+        if listener != nil {
+            NotificationCenter.default.addObserver(forName: IKLocalization.didChangedNotification, object: nil, queue: OperationQueue.main) { (notification) in
+                self.onLocalizationDidChangeClosure!(IKLocalization.language!)
+            }
+        }
+    }
+    func locaizationDidChangeObserver(notification : NotificationCenter) {
+        
+    }
+}
+
+private var icAssociationKey: UInt8 = 0
+
+private class ClosureWrapper {
+    var closure: IKLocalizationDidChangeClosure?
+
+    init(_ closure: IKLocalizationDidChangeClosure?) {
+        self.closure = closure
+    }
+}
+

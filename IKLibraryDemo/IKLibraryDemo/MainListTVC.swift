@@ -24,13 +24,27 @@ struct MenuModel {
 class MainListTVC: UITableViewController {
     
     var list : [MenuModel?] = []
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         IKLocalization.language = .kor
+
+        LocalizationDidChanged { (lang) in
+            var language = ""
+            switch lang {
+            case .eng:
+                language = "ENG"
+            case .kor:
+                language = "KOR"
+            case .idn:
+                language = "IDN"
+            case .vie:
+                language = "VIE"
+            }
+            print("AAAA - IKLocalization Changed : \(language)")
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -211,7 +225,7 @@ class MainListTVC: UITableViewController {
                 language = "VIE"
             }
             print("IKLocalization Changed : \(language)")
-            
+
             print("\(kNEXT.local)")
             print("\(kJOIN_TERMS.local)")
         })

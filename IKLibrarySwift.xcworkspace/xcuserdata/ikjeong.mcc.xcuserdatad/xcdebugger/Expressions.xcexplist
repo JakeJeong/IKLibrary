@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "IKPopup.addMessage(_:):IKPopup.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.window?.view?.mesageLabel?.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UIColor.autoColor.getter:UIColor+IKExtention.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UITraitCollection.current.userInterfaceStyle">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

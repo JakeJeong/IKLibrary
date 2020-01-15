@@ -40,6 +40,8 @@
 		61406BD8231EA9E5006BC76A /* SheetPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61406BD7231EA9E5006BC76A /* SheetPopup.swift */; };
 		61406BDA231EA9F1006BC76A /* SheetPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61406BD9231EA9F1006BC76A /* SheetPopup.xib */; };
 		A826F0A223C860C1008BFEB4 /* IKLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A826F0A123C860C1008BFEB4 /* IKLocalization.swift */; };
+		A85BCC4E23CEA48000DB4F97 /* UIColor+IKExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BCC4D23CEA48000DB4F97 /* UIColor+IKExtention.swift */; };
+		A85BCC5023CEEF2600DB4F97 /* UIView+IKExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85BCC4F23CEEF2600DB4F97 /* UIView+IKExtention.swift */; };
 		A8B6FAC023C2D11B00E03E70 /* IKDeviceSecure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6FABF23C2D11B00E03E70 /* IKDeviceSecure.swift */; };
 		A8B6FAC423C2D36400E03E70 /* LOOCryptString.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6FAC323C2D36400E03E70 /* LOOCryptString.m */; };
 /* End PBXBuildFile section */
@@ -116,6 +118,8 @@
 		61406BD7231EA9E5006BC76A /* SheetPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPopup.swift; sourceTree = "<group>"; };
 		61406BD9231EA9F1006BC76A /* SheetPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheetPopup.xib; sourceTree = "<group>"; };
 		A826F0A123C860C1008BFEB4 /* IKLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKLocalization.swift; sourceTree = "<group>"; };
+		A85BCC4D23CEA48000DB4F97 /* UIColor+IKExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+IKExtention.swift"; sourceTree = "<group>"; };
+		A85BCC4F23CEEF2600DB4F97 /* UIView+IKExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IKExtention.swift"; sourceTree = "<group>"; };
 		A8B6FABF23C2D11B00E03E70 /* IKDeviceSecure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKDeviceSecure.swift; sourceTree = "<group>"; };
 		A8B6FAC223C2D36400E03E70 /* LOOCryptString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOOCryptString.h; sourceTree = "<group>"; };
 		A8B6FAC323C2D36400E03E70 /* LOOCryptString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOOCryptString.m; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				3B0B88F223C235B300F4754D /* String+IKExtention.swift */,
+				A85BCC4D23CEA48000DB4F97 /* UIColor+IKExtention.swift */,
+				A85BCC4F23CEEF2600DB4F97 /* UIView+IKExtention.swift */,
 			);
 			path = IKExtention;
 			sourceTree = "<group>";
@@ -193,7 +199,6 @@
 				5677EF1B23163727006F872E /* AppDelegate.swift */,
 				56E0F813231E77D4002EB278 /* MainListTVC.swift */,
 				568A54182326417B007A0B18 /* Popup.swift */,
-				3B12E6E123C8C2C000698B57 /* AppLocalizableKeys.swift */,
 				A826F0A023C860AF008BFEB4 /* IKLocalization */,
 				A8B6FABE23C2D10D00E03E70 /* IKDeviceSecure */,
 				3B0B88F123C235A800F4754D /* IKExtention */,
@@ -203,7 +208,6 @@
 				5677EF2223163728006F872E /* Assets.xcassets */,
 				5677EF2423163728006F872E /* LaunchScreen.storyboard */,
 				5677EF2723163728006F872E /* Info.plist */,
-				3B12E6DE23C8C1B500698B57 /* Localizable.strings */,
 			);
 			path = IKLibraryDemo;
 			sourceTree = "<group>";
@@ -300,6 +304,8 @@
 			isa = PBXGroup;
 			children = (
 				A826F0A123C860C1008BFEB4 /* IKLocalization.swift */,
+				3B12E6E123C8C2C000698B57 /* AppLocalizableKeys.swift */,
+				3B12E6DE23C8C1B500698B57 /* Localizable.strings */,
 			);
 			path = IKLocalization;
 			sourceTree = "<group>";
@@ -475,6 +481,7 @@
 				5677EF9723190DD9006F872E /* UIView+Extention.swift in Sources */,
 				568A54192326417B007A0B18 /* Popup.swift in Sources */,
 				3B0B88F323C235B300F4754D /* String+IKExtention.swift in Sources */,
+				A85BCC4E23CEA48000DB4F97 /* UIColor+IKExtention.swift in Sources */,
 				5677EF8423164990006F872E /* IKPopupView.swift in Sources */,
 				5677EF912318AC42006F872E /* QueueDoubleStack.swift in Sources */,
 				3B0B88ED23C2342800F4754D /* IKProgressWindow.swift in Sources */,
@@ -484,6 +491,7 @@
 				5677EF932318AFCD006F872E /* IKWindow.swift in Sources */,
 				A8B6FAC023C2D11B00E03E70 /* IKDeviceSecure.swift in Sources */,
 				5677EF9523190A86006F872E /* IKPopupVC.swift in Sources */,
+				A85BCC5023CEEF2600DB4F97 /* UIView+IKExtention.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,7 +608,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -656,7 +664,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
