@@ -264,6 +264,27 @@ class MainListTVC: UITableViewController {
         
         let koreanPhoneNumber2 = "090-9999-9999"
         print("isValidKoreanPhoneNumber : \(koreanPhoneNumber2)", koreanPhoneNumber2.isValidKoreanPhoneNumber ? "true" : "false")
+        
+        
+        let urlPrameter = "https://www.naver.com?date=100&order=200&array=23232"
+        print("\(urlPrameter) => urlParameter >> \(urlPrameter.toURLParameters!)")
+        print("\(urlPrameter) => getURLInValue fail >> \(urlPrameter.getURLInValue(key: "ddd") ?? "{!! Empty Not found}")")
+        print("\(urlPrameter) => getURLInValue success >> \(urlPrameter.getURLInValue(key: "order")!)")
+        
+        print("urlPrameter.toURL \(urlPrameter.toURL!)")
+        
+        let htmlString = """
+<html><body><h1>Hello, world!</h1></body></html>
+"""
+        
+        print("html \(htmlString.toHTML ?? NSAttributedString(string: "Can't Convert HTML AttributedString"))")
+        
+        let htmlString2 = """
+        Hello, world!
+        """
+        
+        print("Not html \(htmlString2.toHTML ?? NSAttributedString(string: "Can't Convert HTML AttributedString"))")
+        
     }
     /*
      // Override to support conditional editing of the table view.
