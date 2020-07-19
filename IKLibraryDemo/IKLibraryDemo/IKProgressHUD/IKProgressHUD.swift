@@ -11,8 +11,9 @@ import UIKit
 class IKProgressHUD: NSObject {
     
     static let shared = IKProgressHUD()
-    private  let window = IKProgressWindow()
+    private let window = IKProgressWindow()
     
+    static var isCanDismiss = false
     private var isLoading = false
     
     private var _completion : (()->Void)?

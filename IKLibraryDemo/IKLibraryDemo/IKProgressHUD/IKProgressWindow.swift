@@ -9,7 +9,8 @@
 import UIKit
 
 class IKProgressWindow: UIWindow {
-
+    
+    private var gesture : UITapGestureRecognizer?
     private var _view : IKProgressView?
     var view : IKProgressView {
         get {
@@ -23,8 +24,11 @@ class IKProgressWindow: UIWindow {
     }
     
     func makeInit() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTouchAction(sender:)))
-        self.addGestureRecognizer(gesture)
+        if self.gesture == nil {
+            self.gesture = UITapGestureRecognizer(target: self, action: #selector(didTouchAction(sender:)))
+            self.addGestureRecognizer(self.gesture!)
+        }
+        self.gesture?.isEnabled = IKProgressHUD.isCanDismiss
     }
     
     @objc
